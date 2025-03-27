@@ -55,7 +55,7 @@ export class Spot {
           headers: {
             "Content-Type": "application/json",
           },
-          credentials: 'include',
+          credentials: "include",
           body: JSON.stringify({
             id: this.currentTask,
             sites: this.sites,
