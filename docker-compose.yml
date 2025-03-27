@@ -1,0 +1,102 @@
+services:
+  traefik:
+    image: traefik:latest
+    command:
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --accesslog=true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  traefik-forward-auth:
+    image: quay.io/oauth2-proxy/oauth2-proxy:latest
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - OAUTH2_PROXY_PROVIDER=oidc
+      - OAUTH2_PROXY_SKIP_PROVIDER_BUTTON=true
+      - OAUTH2_PROXY_OIDC_ISSUER_URL=${OAUTH_ISSUER_URL}
+      - OAUTH2_PROXY_CLIENT_ID=${OAUTH_CLIENT_ID}
+      - OAUTH2_PROXY_CLIENT_SECRET=${OAUTH_CLIENT_SECRET}
+      - OAUTH2_PROXY_COOKIE_SECRET=${AUTHENTICATION_SECRET}
+      #- OAUTH2_PROXY_COOKIE_DOMAINS=.${GUI_HOST}
+      - OAUTH2_PROXY_COOKIE_DOMAINS=${GUI_HOST}
+      - OAUTH2_PROXY_HTTP_ADDRESS=:4180
+      - OAUTH2_PROXY_REVERSE_PROXY=true
+      #- OAUTH2_PROXY_WHITELIST_DOMAINS=.${GUI_HOST}
+      - OAUTH2_PROXY_WHITELIST_DOMAINS=${GUI_HOST}
+      - OAUTH2_PROXY_UPSTREAMS=static://202
+      - OAUTH2_PROXY_EMAIL_DOMAINS=*
+      - OAUTH2_PROXY_ALLOWED_GROUPS=${ALLOWED_GROUPS}
+      # For some reason, login.verbis.dkfz.de does not have a "groups" scope but this comes automatically through a
+      # scope called microprofile-jwt. Remove the following line once we have a "groups" scope.
+      - OAUTH2_PROXY_SCOPE=openid profile email
+      # Pass Authorization Header and some user information to spot
+      - OAUTH2_PROXY_SET_AUTHORIZATION_HEADER=true
+      - OAUTH2_PROXY_SET_XAUTHREQUEST=true
+      - OAUTH2_PROXY_JWT_KEY=$(cat public_key.pem)
+        
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.traefik-forward-auth.forwardauth.address=http://traefik-forward-auth:4180"
+      - "traefik.http.middlewares.traefik-forward-auth.forwardauth.authResponseHeaders=Authorization, X-Forwarded-User, X-Auth-Request-User, X-Auth-Request-Email"
+      - "traefik.http.services.traefik-forward-auth.loadbalancer.server.port=4180"
+      - "traefik.http.routers.oauth2.rule=Host(`${GUI_HOST}`) && PathPrefix(`/oauth2/`)"
+      - "traefik.http.routers.oauth2.tls=true"
+
+  organoid-dashboard:
+    image: samply/organoid-dashboard:main
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.idb.rule=Host(`${GUI_HOST}`)"
+      - "traefik.http.routers.idb.tls=true"
+      - "traefik.http.routers.idb.middlewares=traefik-forward-auth"
+
+  spot:
+    image: samply/rustyspot:main
+    ports:
+      - "8055:8055"
+    environment:
+      HTTP_PROXY: ${http_proxy}
+      HTTPS_PROXY: ${https_proxy}
+      NO_PROXY: beam-proxy, prism
+      BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT}"
+      BEAM_PROXY_URL: http://beam-proxy:8081
+      BEAM_APP_ID: "spot.${LOCAL_BEAM_ID}.${BROKER_HOST}"
+      CORS_ORIGIN: "https://${GUI_HOST}"
+      BIND_ADDR: 0.0.0.0:8055
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.spot.loadbalancer.server.port=8055"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowmethods=GET,OPTIONS,POST"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowheaders=content-type"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolalloworiginlist=https://${GUI_HOST}"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowcredentials=true"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolmaxage=-1"
+      - "traefik.http.routers.spot.rule=Host(`${GUI_HOST}`) && PathPrefix(`/prod`)"
+      - "traefik.http.middlewares.stripprefix_spot_prod.stripprefix.prefixes=/prod"
+      - "traefik.http.routers.spot.tls=true"
+      - "traefik.http.routers.spot.middlewares=corsheaders,stripprefix_spot_prod"
+
+  beam-proxy:
+    image: docker.verbis.dkfz.de/cache/samply/beam-proxy:develop
+    environment:
+      BROKER_URL: https://${BROKER_HOST}
+      PROXY_ID: ${LOCAL_BEAM_ID}.${BROKER_HOST}
+      APP_spot_KEY: ${LOCAL_BEAM_SECRET_SPOT}
+      PRIVKEY_FILE: /run/secrets/proxy.pem
+      ALL_PROXY: ${http_proxy}
+    secrets:
+      - proxy.pem
+      - root.crt.pem
+
+secrets:
+  proxy.pem:    
+    file: organoid-dashboard.priv.pem
+  root.crt.pem:
+    file: root.crt.pem

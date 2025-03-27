@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon-dktk.png">
+  <link rel="stylesheet" href="style.css">
+  <title>DKTK Organoid Platform - Dashboard</title>
+  <script type="module" src="index.js"></script>
+</head>
+
+<body>
+  <!-- is changed to `display: flex` by JS if user has not given consent -->
+  <div id="consentPopup"
+    style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color: rgba(53, 53, 53, 0.8); z-index: 2; display: none; align-items: center; justify-content: center;">
+    <div style="padding: var(--gap-s); max-width: 35rem;" class="card">
+      <p>Bitte nehmen Sie vor der Nutzung die Nutzungsvereinbarung und Datenschutzerklärung zur Kenntnis:</p>
+      <div class="document-links">
+        <a href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" class="document-link">
+          <img src="../images/pdf-icon.svg" alt="PDF Icon" class="pdf-icon" />
+          Nutzungsvereinbarung
+        </a>
+        <a href="https://hub.dkfz.de/s/CEAstywLAtGFPDi" class="document-link">
+          <img src="../images/pdf-icon.svg" alt="PDF Icon" class="pdf-icon" />
+          Datenschutzerklärung
+        </a>
+      </div>
+      <p>
+        <input type="checkbox" id="consentCheckbox" />
+        <label for="consentCheckbox">Hiermit bestätige ich, dass ich die Nutzungsvereinbarung und Datenschutzerklärung
+          in ihrer aktuell gültigen Version gelesen habe und mit diesen einverstanden bin.</label>
+      </p>
+      <p><button id="consentButton" style="width: 100%">Weiter zum DKTK Organoid Platform - Dashboard</button></p>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-wrapper">
+      <div class="logo">
+        <img src="../images/dktk.svg" alt="Logo des DKTK" />
+      </div>
+      <h1>DKTK Organoid Platform - Dashboard</h1>
+      <div class="logo logo-dkfz">
+        <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" />
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- cards row -->
+    <div style="display: flex; justify-content: space-around; gap: var(--gap-s); padding: var(--gap-s);" class="card">
+      <div>
+        Sites
+        <img class="info-icon" alt="" title="Number of sites providing data"
+          src="../images/info-circle-svgrepo-com.svg"></img>
+        <span id="numResponses">0</span>/3
+      </div>
+      <div>
+        Projects
+        <img class="info-icon" alt="" title="For more details visit DKTK Organoid Platform & Projects (link in footer)"
+          src="../images/info-circle-svgrepo-com.svg"></img>
+        <span id="numProjects">0</span>
+      </div>
+      <div>
+        Patients
+        <span id="numPatients">0</span>
+      </div>
+      <div>
+        Organoids
+        <span id="numOrganoids">0</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-s); padding: var(--gap-s);"
+      class="card">
+      <h4 style="text-align: center;">Patients by Project</h4>
+      <h4 style="text-align: center;">Organoids by Project</h4>
+      <h4 style="text-align: center;">Patients Age Distribution
+        <img class="info-icon" alt="" title="distribution of patient ages at study enrollment"
+          src="../images/info-circle-svgrepo-com.svg"></img>
+      </h4>
+
+      <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
+      <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
+      <div style="min-width: 0;"><canvas id="patientsByProjectBarChartCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="organoidsByProjectBarChartCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="patientsByAgeBarChartCanvas"></canvas></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-s); padding: var(--gap-s);"
+      class="card">
+      <h4 style="text-align: center;">Patients by Gender</h4>
+      <h4 style="text-align: center;">Organoids by Biopsy Site</h4>
+      <h4 style="text-align: center;">MetP Patients by PDOs
+        <img class="info-icon" alt="" title="the numbers of MetPredict patients having a given number of organoids"
+          src="../images/info-circle-svgrepo-com.svg"></img>
+      </h4>
+      <h4 style="text-align: center;">NeoM Patients: PDOs by Therapy Status
+        <img class="info-icon" alt=""
+          title="numbers of NeoMatch patients having organoids that were sampled at a specified status of therapy"
+          src="../images/info-circle-svgrepo-com.svg"></img>
+      </h4>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
+        id="patientsByGenderPieChartLegend"></div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
+        id="organoidByBiopsySitePieChartLegend"></div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
+        id="metPPatientsByPdosPieChartLegend"></div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
+        id="neoMPatientsByTherapyStatusPieChartLegend"></div>
+
+      <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
+      <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
+      <div style="min-width: 0;"><canvas id="patientsByGenderPieChartCanvas"></canvas></canvas></div>
+      <div style="min-width: 0;"><canvas id="organoidByBiopsySitePieChartCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="metPPatientsByPdosPieChartCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="neoMPatientsByTherapyStatusPieChartCanvas"></canvas></div>
+    </div>
+  </main>
+  <footer>
+    <a href="https://dktk.dkfz.de/en/research/joint-funding-projects/strategic-initiatives/details/48/7825"
+      target="_blank">DKTK Organoid Platform & Projects</a>
+    <a class="user-agreement" href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" download="nutzervereinbarung"
+      target="_blank">Nutzungsvereinbarung</a>
+    <a class="privacy-policy" href="https://hub.dkfz.de/s/CEAstywLAtGFPDi" download="datenschutzerklaerung"
+      target="_blank">Datenschutz</a>
+    <a href="https://www.dkfz.de/de/impressum.html" target="_blank">Impressum</a>
+    <a href="https://dktk.dkfz.de/en/clinical-platform/about-ccp" download="nutzervereinbarung"
+      target="_blank">Supported by CCP</a>
+    <a class="email" href="mailto:CCP@dkfz.de">Kontakt</a>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon-dktk.png">
+  <link rel="stylesheet" href="style.css">
+  <title>DKTK Organoid Platform - Internes Dashboard</title>
+  <script type="module" src="index.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-wrapper">
+      <div class="logo">
+        <img src="../images/dktk.svg" alt="Logo des DKTK" />
+      </div>
+      <h1>DKTK Organoid Platform - Internes Dashboard</h1>
+      <div class="logo logo-dkfz">
+        <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" />
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="site-status-wrapper">
+      Dresden: Processing,
+      Frankfurt: Offline,
+      München-TUM: Processing,
+      München-LMU: Processing <br>
+      <button id="rerun-query-button">
+        Refresh data
+      </button>
+    </div>
+
+    <div class="table-wrapper">
+      <h2>Organoid Details</h2>
+      <div id="table" class="result-table"></div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://dktk.dkfz.de/en/research/joint-funding-projects/strategic-initiatives/details/48/7825"
+      target="_blank">DKTK Organoid Platform & Projects</a>
+    <a class="user-agreement" href="" download="nutzervereinbarung" target="_blank">Nutzungsvereinbarung</a>
+    <a class="privacy-policy" href="" download="datenschutzerklaerung" target="_blank">Datenschutz</a>
+    <a href="https://www.dkfz.de/de/impressum.html" target="_blank">Impressum</a>
+    <a href="https://dktk.dkfz.de/en/clinical-platform/about-ccp" download="nutzervereinbarung"
+      target="_blank">Supported by CCP</a>
+    <a class="email" href="mailto:CCP@dkfz.de">Kontakt</a>
+  </footer>
+</body>
+
+</html>
