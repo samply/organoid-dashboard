@@ -158,5 +158,3 @@ window.addEventListener("load", () => {
   updateTable(exampleParsedResponse);
   updateTable(exampleParsedResponse2);
 });
-
-new EventSource('/esbuild').addEventListener('change', () => location.reload());

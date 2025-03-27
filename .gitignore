@@ -1,5 +1,5 @@
 /node_modules/
 /build/
+/.env
 /organoid-dashboard.priv.pem
 /root.crt.pem
-/public_key.pem

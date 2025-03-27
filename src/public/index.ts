@@ -326,5 +326,3 @@ consentCheckbox.onchange = () => {
 
 // Initialize the button state based on the checkbox
 consentButton.disabled = !consentCheckbox.checked;
-
-new EventSource('/esbuild').addEventListener('change', () => location.reload());
