@@ -66,6 +66,10 @@ services:
       BEAM_APP_ID: "spot.${LOCAL_BEAM_ID}.${BROKER_HOST}"
       CORS_ORIGIN: "https://${GUI_HOST}"
       BIND_ADDR: 0.0.0.0:8055
+      RUST_LOG: "info"
+      LOG_FILE: /logs/requests.log
+    volumes:
+      - ./logs:/logs
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.spot.loadbalancer.server.port=8055"
