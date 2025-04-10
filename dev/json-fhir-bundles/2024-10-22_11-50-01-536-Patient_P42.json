@@ -1,0 +1,67 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "Patient/1234",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1234",
+                "meta": {
+                    "profile": [
+                        "http://dktk.dkfz.de/fhir/StructureDefinition/onco-core-Patient-Pseudonym"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://dktk.dkfz.de/fhir/onco/core/CodeSystem/PseudonymArtCS",
+                                    "code": "Lokal"
+                                }
+                            ]
+                        },
+                        "value": "ABCDEFGH"
+                    }
+                ],
+                "gender": "male"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1234"
+            }
+        },
+        {
+            "fullUrl": "Patient/2345",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "2345",
+                "meta": {
+                    "profile": [
+                        "http://dktk.dkfz.de/fhir/StructureDefinition/onco-core-Patient-Pseudonym"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://dktk.dkfz.de/fhir/onco/core/CodeSystem/PseudonymArtCS",
+                                    "code": "Lokal"
+                                }
+                            ]
+                        },
+                        "value": "IJKLMNOP"
+                    }
+                ],
+                "gender": "female",
+                "birthDate": "1900-01-01"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/2345"
+            }
+        }
+    ]
+}

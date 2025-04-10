@@ -1,0 +1,115 @@
+services:
+  blaze:
+    image: samply/blaze:latest
+    healthcheck:
+      test: curl -f http://localhost:8080/fhir/metadata
+      start_period: 1m
+  
+  blaze-loader:
+    image: alpine:3.21
+    depends_on:
+      blaze:
+        condition: service_healthy
+    volumes:
+      - ./container-setup-scripts/blaze-loader.sh:/blaze-loader.sh:ro
+      - ./json-fhir-bundles:/json-fhir-bundles:ro
+    command: sh /blaze-loader.sh
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: pgpass123
+
+  fhir2sql:
+    image: samply/fhir2sql:main
+    depends_on:
+      blaze-loader:
+        condition: service_completed_successfully
+    environment:
+      BLAZE_BASE_URL: http://blaze:8080
+      PG_HOST: postgres
+      PG_USERNAME: postgres
+      PG_PASSWORD: pgpass123
+      PG_DBNAME: postgres
+
+  vault:
+    image: hashicorp/vault:latest
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: vaulttoken123
+  
+  pki-setup:
+    image: hashicorp/vault:latest
+    environment:
+      VAULT_ADDR: http://vault:8200
+      VAULT_TOKEN: vaulttoken123
+    volumes:
+      - ./container-setup-scripts/pki-setup.sh:/pki-setup.sh:ro
+      - pki:/pki
+    command: sh /pki-setup.sh
+
+  broker:
+    image: samply/beam-broker:main
+    depends_on:
+      pki-setup:
+        condition: service_completed_successfully
+    environment:
+      BROKER_URL: http://broker:8080
+      PKI_ADDRESS: http://vault:8200
+      PKI_APIKEY_FILE: /pki/pki.secret
+      ROOTCERT_FILE: /pki/root.crt.pem
+    volumes:
+      - pki:/pki:ro
+
+  proxy1:
+    image: samply/beam-proxy:main
+    depends_on:
+      - broker
+    environment:
+      BROKER_URL: http://broker:8080
+      PROXY_ID: proxy1.broker
+      APP_focus_KEY: focuskey123
+      PRIVKEY_FILE: /pki/proxy1.priv.pem
+      ROOTCERT_FILE: /pki/root.crt.pem
+    volumes:
+      - pki:/pki:ro
+
+  proxy2:
+    image: samply/beam-proxy:main
+    depends_on:
+      - broker
+    environment:
+      BROKER_URL: http://broker:8080
+      PROXY_ID: proxy2.broker
+      APP_spot_KEY: spotkey123
+      PRIVKEY_FILE: /pki/proxy2.priv.pem
+      ROOTCERT_FILE: /pki/root.crt.pem
+    volumes:
+      - pki:/pki:ro
+
+  focus:
+    image: samply/focus:main-dktk
+    depends_on:
+      - proxy1
+    environment:
+      BEAM_PROXY_URL: http://proxy1:8081
+      BEAM_APP_ID_LONG: focus.proxy1.broker
+      API_KEY: focuskey123
+      ENDPOINT_TYPE: blaze-and-sql
+      BLAZE_URL: http://blaze:8080/fhir/
+      POSTGRES_CONNECTION_STRING: postgresql://postgres:pgpass123@postgres/postgres
+
+  spot:
+    image: samply/rustyspot:main
+    depends_on:
+      - proxy2
+    ports:
+      - 8055:8055
+    environment:
+      RUST_LOG: info
+      BEAM_PROXY_URL: http://proxy2:8081
+      BEAM_APP_ID: spot.proxy2.broker
+      BEAM_SECRET: spotkey123
+      CORS_ORIGIN: http://127.0.0.1:8000
+
+volumes:
+  pki:

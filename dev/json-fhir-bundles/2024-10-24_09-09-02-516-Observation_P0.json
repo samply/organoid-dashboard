@@ -1,0 +1,4263 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "Observation/16",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "16",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 1: Stammdaten Patient_07/31/2024 10:47:40"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-07-31",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-1_PATIENTDATA"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_AGE_STUDY_ENROLLMENT",
+                                    "display": "Age at study enrollment"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 1,
+                            "unit": "YEARS"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_GENDER",
+                                    "display": "Gender"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-174",
+                                    "code": "MALE"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_HEIGHT",
+                                    "display": "Height"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 1.2E+2,
+                            "unit": "cm"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_WEIGHT",
+                                    "display": "Weight"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 1.2E+2,
+                            "unit": "kg"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ASA_CATEGORY",
+                                    "display": "ASA Category"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-163",
+                                    "code": "ASA-1"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ECOG_STATUS",
+                                    "display": "ECOG Performance Status"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-164",
+                                    "code": "ECOG-0"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SMOKING",
+                                    "display": "Smoking"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ALCOHOL_ABUSE",
+                                    "display": "Alcohol abuse"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_HEPATITIS",
+                                    "display": "Hepatitis_siop"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-166",
+                                    "code": "NON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NAFLD",
+                                    "display": "Steatosis hepatis / Non-alcoholic fatty liver disease (NAFLD)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ASH_NASH",
+                                    "display": "Steatosishepatitis (ASH/NASH)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LIVER_CIRRHOSIS",
+                                    "display": "Liver cirrhosis"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-165",
+                                    "code": "NON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LOCALISATION_PRIMARY_TUMOR",
+                                    "display": "Localisation primary tumor"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-194",
+                                    "code": "COLON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_DIAGONSIS_COLORECTAL_TUMOR",
+                                    "display": "Diagnosis date of colorectal cancer"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-30T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_CT",
+                                    "display": "Clinical staging primary tumor (TNM - cT)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-167",
+                                    "code": "NA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_CN",
+                                    "display": "Clinical staging lymphnodes (TNM - cN)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-168",
+                                    "code": "NA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_T_RECTAL_CARCINOMA",
+                                    "display": "Neoadjuvant therapy of Rectal carcinoma"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_RESECTED",
+                                    "display": "Primary tumor resected"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-176",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_PRIMARY_TUMOR",
+                                    "display": "Adjuvant Chemotherapy (CTx) - primary tumor"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_DATE_DIAGNOSIS",
+                                    "display": "Diagnosis date of liver metastases"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_MET",
+                                    "display": "Neoadjuvant Chemotherapy (CTx) - Metastases"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG",
+                                    "display": "Lunge metastases existing/existed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/16"
+            }
+        },
+        {
+            "fullUrl": "Observation/17",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "17",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 2a: Operation Lebermetastasen_07/31/2024 11:08:58"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-07-31",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-2A_OPERATION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PVE_PERFORMED",
+                                    "display": "Portal vein embolization (PVE) performed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ISS_PERFORMED",
+                                    "display": "In-situ split performed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_SEGMENTS_AFFECTED",
+                                    "display": "Affected liver segments (new)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-IVA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ATYPICAL_RESECTION_PERFORMED",
+                                    "display": "Atypical resection(s)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ANATOMICAL_RESECTION",
+                                    "display": "Anatomical resection(s)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_IN-SITU",
+                                    "display": "Primary tumor in-situ"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NON-SURGICAL_LOCAL_THERAPY",
+                                    "display": "Metastases treated with non-surgical local therapy"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/17"
+            }
+        },
+        {
+            "fullUrl": "Observation/18",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "18",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 2b - Entnahmeprotokoll_07/31/2024 11:10:36"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-07-31",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-2B_SAMPLE_COLLECTION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PREOP_COLLECTION_CPT",
+                                    "display": "Preoperative blood collection (3 x 7,5ml BD CPT™ Sodium-Heparin)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_COLLECTION_LIVER_NORMAL_TISSUE",
+                                    "display": "Collection live normal tissue (5 x 5 x 5mm)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_SEGMENT",
+                                    "display": "M01 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-I"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_LN2",
+                                    "display": "M01 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_CONFIRMATION_MET",
+                                    "display": "M01 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_SEGMENT",
+                                    "display": "M02 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-I"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_LN2",
+                                    "display": "M02 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_CONFIRMATION_MET",
+                                    "display": "M02 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_SEGMENT",
+                                    "display": "M03 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-I"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_LN2",
+                                    "display": "M03 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_CONFIRMATION_MET",
+                                    "display": "M03 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_DEVASCULARIZATION",
+                                    "display": "Time of devascularization of the liver"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_TUMOR_TISSUE_LN2",
+                                    "display": "Time of tumor tissue in LN2"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_COLLECTION_ORGANOID",
+                                    "display": "Time of collection organoid sample"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_TRANSFER_ORGANOID_LAB",
+                                    "display": "Time of transfer to organoid laboratory"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_PSEUDONYM",
+                                    "display": "M01 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_ORGANOID1"
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/18"
+            }
+        },
+        {
+            "fullUrl": "Observation/19",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "19",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 4: End of adjuvanten oder zwischengeschalteten Therapie_07/31/2024 11:11:37"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-07-31",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "3",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-4_END_ADJUVANT_THERAPY"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_MET",
+                                    "display": "Adjuvant Chemotherapy (CTx) - metastases"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_RESECTED_MEANWHILE",
+                                    "display": "Primary tumor resected meanwhile"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-178",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_RECURRENCE",
+                                    "display": "New liver metastases recurrence"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG",
+                                    "display": "Lunge metastases existing/existed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG_RECURRENCE",
+                                    "display": "New lung metastases recurrence"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_EXTRAHEPATIC_RECURRENCE",
+                                    "display": "New extrahepatic recurrence (except for lung)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_RE-INTERVENTION_INTENTION",
+                                    "display": "Intention of all re-intervention(s)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-184",
+                                    "code": "CURATIVE"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/19"
+            }
+        },
+        {
+            "fullUrl": "Observation/20",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "20",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 5-10: Follow Up_07/31/2024 11:12:25"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-07-31",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-5-10_FOLLOW-UP"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_LAST_VISIT",
+                                    "display": "Liver metastases in last visit"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_RECURRENCE",
+                                    "display": "New liver metastases recurrence"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_EXTRAHEPATIC_RECURRENCE_LAST_VISIT",
+                                    "display": "Extrahepatic metastases in last visit"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_EXTRAHEPATIC_RECURRENCE",
+                                    "display": "New extrahepatic recurrence (except for lung)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ONCOLOGICAL_STATUS",
+                                    "display": "Oncological status"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-191",
+                                    "code": "CURATIVE"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/20"
+            }
+        },
+        {
+            "fullUrl": "Observation/21",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "21",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite3: Abschließende histologische Beurteilung_07/31/2024 11:13:01"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-07-31",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-3_PATHOLOGICAL_FINDING"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-07-31T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ALL_LIVER_MET_FOR_ORGANOIDS_VERIFIED_BY_PATHO",
+                                    "display": "All metastases removed for organoid culture verified in final histology"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_RESECTION_IN-SANO",
+                                    "display": "Resection(s) safely performed in sano (incl. subsequent resections)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LIVER_NORMAL_FINDING",
+                                    "display": "Normal finding liver tissue"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/21"
+            }
+        },
+        {
+            "fullUrl": "Observation/26",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "26",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 2b - Entnahmeprotokoll_10/23/2024 13:31:58"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1234"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-2B_SAMPLE_COLLECTION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PREOP_COLLECTION_CPT",
+                                    "display": "Preoperative blood collection (3 x 7,5ml BD CPT™ Sodium-Heparin)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_COLLECTION_LIVER_NORMAL_TISSUE",
+                                    "display": "Collection live normal tissue (5 x 5 x 5mm)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_DEVASCULARIZATION",
+                                    "display": "Time of devascularization of the liver"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_TUMOR_TISSUE_LN2",
+                                    "display": "Time of tumor tissue in LN2"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_COLLECTION_ORGANOID",
+                                    "display": "Time of collection organoid sample"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_TRANSFER_ORGANOID_LAB",
+                                    "display": "Time of transfer to organoid laboratory"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_PSEUDONYM",
+                                    "display": "M01 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1_M01_2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_SEGMENT",
+                                    "display": "M01 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-IVB"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_LN2",
+                                    "display": "M01 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_CONFIRMATION_MET",
+                                    "display": "M01 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_PSEUDONYM",
+                                    "display": "M02 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1_M02_1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_SEGMENT",
+                                    "display": "M02 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-IVA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_LN2",
+                                    "display": "M02 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_CONFIRMATION_MET",
+                                    "display": "M02 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_PSEUDONYM",
+                                    "display": "M03 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1_M03_1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_SEGMENT",
+                                    "display": "M03 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-VII"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_LN2",
+                                    "display": "M03 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_CONFIRMATION_MET",
+                                    "display": "M03 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_PSEUDONYM",
+                                    "display": "M04 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1_M04_1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_SEGMENT",
+                                    "display": "M04 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "NA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_LN2",
+                                    "display": "M04 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_CONFIRMATION_MET",
+                                    "display": "M04 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_PSEUDONYM",
+                                    "display": "M05 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1_M05_1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_SEGMENT",
+                                    "display": "M05 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-III"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_LN2",
+                                    "display": "M05 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_CONFIRMATION_MET",
+                                    "display": "M05 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_PSEUDONYM",
+                                    "display": "M06 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORG_TESTPAT1_M06_1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_SEGMENT",
+                                    "display": "M06 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "NA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_LN2",
+                                    "display": "M06 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_CONFIRMATION_MET",
+                                    "display": "M06 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/26"
+            }
+        },
+        {
+            "fullUrl": "Observation/27",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "27",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 1: Stammdaten Patient_10/23/2024 13:37:07"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2345"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-1_PATIENTDATA"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_AGE_STUDY_ENROLLMENT",
+                                    "display": "Age at study enrollment"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 3,
+                            "unit": "YEARS"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_GENDER",
+                                    "display": "Gender"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-174",
+                                    "code": "MALE"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_HEIGHT",
+                                    "display": "Height"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 1.7E+2,
+                            "unit": "cm"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_WEIGHT",
+                                    "display": "Weight"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 7E+1,
+                            "unit": "kg"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ASA_CATEGORY",
+                                    "display": "ASA Category"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-163",
+                                    "code": "ASA-1"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ECOG_STATUS",
+                                    "display": "ECOG Performance Status"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-164",
+                                    "code": "ECOG-2"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SMOKING",
+                                    "display": "Smoking"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ALCOHOL_ABUSE",
+                                    "display": "Alcohol abuse"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_HEPATITIS",
+                                    "display": "Hepatitis_siop"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-166",
+                                    "code": "NON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_HEPATITS_ACTIVITY",
+                                    "display": "Hepatits activity grading"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-188",
+                                    "code": "ACTIVE"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NAFLD",
+                                    "display": "Steatosis hepatis / Non-alcoholic fatty liver disease (NAFLD)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ASH_NASH",
+                                    "display": "Steatosishepatitis (ASH/NASH)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LIVER_CIRRHOSIS",
+                                    "display": "Liver cirrhosis"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-165",
+                                    "code": "NON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LOCALISATION_PRIMARY_TUMOR",
+                                    "display": "Localisation primary tumor"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-194",
+                                    "code": "COLON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LOCALISATION_PRIMARY_TUMOR_COLON",
+                                    "display": "Localisation primary tumor - colon"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-195",
+                                    "code": "COLON_ASCENDENS"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_DIAGONSIS_COLORECTAL_TUMOR",
+                                    "display": "Diagnosis date of colorectal cancer"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_CT",
+                                    "display": "Clinical staging primary tumor (TNM - cT)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-167",
+                                    "code": "TX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_CN",
+                                    "display": "Clinical staging lymphnodes (TNM - cN)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-168",
+                                    "code": "NX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_T_RECTAL_CARCINOMA",
+                                    "display": "Neoadjuvant therapy of Rectal carcinoma"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_RCTX_RT_LONG_COURSE",
+                                    "display": "Neoadjuvant RCTx - Radiochemotherapy - Long Course"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_RCTX_CT_REGIME",
+                                    "display": "Neoadjuvant RCTx - concomitant Chemotherapy - regime"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-193",
+                                    "code": "5-FU_FOLINIC-ACID"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_RTX_RT_SHORT_COURSE",
+                                    "display": "Neoadjuvant RTx - Radiotherapy - Short Course (5x5Gy)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_TNT",
+                                    "display": "Total Neoadjuvant Therapy (TNT) - (RCT/RTx + CTx)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_TNT_CT_REGIME",
+                                    "display": "TNT - Chemotherapy - regime"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-192",
+                                    "code": "CAPOX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_TNT_CT_DOSE_REDUCTION",
+                                    "display": "TNT - Chemotherapy - Dose reduction"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_RESECTED",
+                                    "display": "Primary tumor resected"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-176",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_PRIMARY_TUMOR_RESECTION",
+                                    "display": "Date of tumor resection"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_PT",
+                                    "display": "Pathological staging primary tumor (TNM - pT)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-167",
+                                    "code": "TX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_PN",
+                                    "display": "Pathological staging lymphnodes (TNM - pN)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-168",
+                                    "code": "NX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_PRIMARY_TUMOR",
+                                    "display": "Adjuvant Chemotherapy (CTx) - primary tumor"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_REGIME",
+                                    "display": "Adjuvant CTx - regime"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "5-FU_FOLINIC-ACID"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_DOSE_REDUCTION",
+                                    "display": "Adjuvant CTx - Dose reduction"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_DATE_DIAGNOSIS",
+                                    "display": "Diagnosis date of liver metastases"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_MET",
+                                    "display": "Neoadjuvant Chemotherapy (CTx) - Metastases"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_REGIME",
+                                    "display": "Neoadjuvant CTx - regime"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "5-FU_FOLINIC-ACID"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_ANTIBODIES",
+                                    "display": "Neoadjuvant CTx - Additional application of antibodies"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-180",
+                                    "code": "NON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_DOSE_REDUCTION",
+                                    "display": "Neoadjuvant CTx - Dose reduction"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG",
+                                    "display": "Lunge metastases existing/existed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG_DATE_DIAGNOSIS",
+                                    "display": "Diagnosis date of lunge metastases"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG_TREATMENT",
+                                    "display": "Treatment of lung metastases"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-186",
+                                    "code": "LOCALLY_TREATED"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/27"
+            }
+        },
+        {
+            "fullUrl": "Observation/28",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "28",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 2a: Operation Lebermetastasen_10/23/2024 13:40:46"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2345"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-2A_OPERATION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PVE_PERFORMED",
+                                    "display": "Portal vein embolization (PVE) performed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PVE_DATE",
+                                    "display": "Date of PVE"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ISS_PERFORMED",
+                                    "display": "In-situ split performed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ISS_DATE",
+                                    "display": "Date of ISS"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_TOTAL_INTRAOP_IMAGING",
+                                    "display": "Number of liver metastases (intraoperative imaging)"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 2
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_SEGMENTS_AFFECTED",
+                                    "display": "Affected liver segments (new)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-I"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ATYPICAL_RESECTION_PERFORMED",
+                                    "display": "Atypical resection(s)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ATYPICAL_RESECTIONS_TOTAL",
+                                    "display": "Atypical resections - total"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 2
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ATYPICAL_RESECTION_SEGMENTS",
+                                    "display": "Atypical Resection(s) - liver segments"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-I"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ANATOMICAL_RESECTION",
+                                    "display": "Anatomical resection(s)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ANATOMICAL_RESECTION_KIND",
+                                    "display": "Anatomical resection - kind"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-171",
+                                    "code": "HHE-R"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ANATOMICAL_RESECTION_KIND_OTHER",
+                                    "display": "Anatomical resection - other segment ectomy"
+                                }
+                            ]
+                        },
+                        "valueString": "2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ANATOMICAL_RESECTION_SEGMENTS",
+                                    "display": "Anatomical resection - further / other segments"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-III"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_IN-SITU",
+                                    "display": "Primary tumor in-situ"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_SIMULTANEOUS_RESECTION",
+                                    "display": "Simultaneous resection of primary tumor"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NON-SURGICAL_LOCAL_THERAPY",
+                                    "display": "Metastases treated with non-surgical local therapy"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NON-SURGICAL_LOCAL_THERAPY_SEGMENTS",
+                                    "display": "Non-surgical local therapy - segments"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-IVA"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/28"
+            }
+        },
+        {
+            "fullUrl": "Observation/29",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "29",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 2b - Entnahmeprotokoll_10/23/2024 13:42:07"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2345"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-2B_SAMPLE_COLLECTION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PREOP_COLLECTION_CPT",
+                                    "display": "Preoperative blood collection (3 x 7,5ml BD CPT™ Sodium-Heparin)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_COLLECTION_LIVER_NORMAL_TISSUE",
+                                    "display": "Collection live normal tissue (5 x 5 x 5mm)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_DEVASCULARIZATION",
+                                    "display": "Time of devascularization of the liver"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_TUMOR_TISSUE_LN2",
+                                    "display": "Time of tumor tissue in LN2"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_COLLECTION_ORGANOID",
+                                    "display": "Time of collection organoid sample"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TIME_TRANSFER_ORGANOID_LAB",
+                                    "display": "Time of transfer to organoid laboratory"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_PSEUDONYM",
+                                    "display": "M01 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2_M01_01"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_SEGMENT",
+                                    "display": "M01 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-II"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_LN2",
+                                    "display": "M01 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_CONFIRMATION_MET",
+                                    "display": "M01 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_CHARACTERIZATION",
+                                    "display": "M01 - Characterization frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueString": "testcharacterization"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_PSEUDONYM",
+                                    "display": "M02 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2_M02_01"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_SEGMENT",
+                                    "display": "M02 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-IVA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_LN2",
+                                    "display": "M02 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_CONFIRMATION_MET",
+                                    "display": "M02 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_CHARACTERIZATION",
+                                    "display": "M02 - Characterization frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueString": "testcharacterization2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_PSEUDONYM",
+                                    "display": "M03 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2_M03_01"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_SEGMENT",
+                                    "display": "M03 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-IVA"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_LN2",
+                                    "display": "M03 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_CONFIRMATION_MET",
+                                    "display": "M03 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_PSEUDONYM",
+                                    "display": "M04 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2_M04_01"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_SEGMENT",
+                                    "display": "M04 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-V"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_LN2",
+                                    "display": "M04 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M04_CONFIRMATION_MET",
+                                    "display": "M04 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_PSEUDONYM",
+                                    "display": "M05 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2_M05_01"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_SEGMENT",
+                                    "display": "M05 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-V"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_LN2",
+                                    "display": "M05 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M05_CONFIRMATION_MET",
+                                    "display": "M05 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_PSEUDONYM",
+                                    "display": "M06 - Sample pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2_M06_01"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_SEGMENT",
+                                    "display": "M06 - Metastasis from liver segment"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-VI"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_LN2",
+                                    "display": "M06 - Metastasis in LN2"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M06_CONFIRMATION_MET",
+                                    "display": "M06 - Confirmation of metastasis in frozen section procedure"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-175",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/29"
+            }
+        },
+        {
+            "fullUrl": "Observation/30",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "30",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite3: Abschließende histologische Beurteilung_10/23/2024 13:44:50"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2345"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-3_PATHOLOGICAL_FINDING"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_TOTAL_PATHO",
+                                    "display": "Number of liver metastases (pathology finding)"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 6
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ALL_LIVER_MET_FOR_ORGANOIDS_VERIFIED_BY_PATHO",
+                                    "display": "All metastases removed for organoid culture verified in final histology"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_RESECTION_IN-SANO",
+                                    "display": "Resection(s) safely performed in sano (incl. subsequent resections)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_RESECTION_NON-IN-SANO_SEGMENTS",
+                                    "display": "Resection(s) - non in sano - affected segments"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-170",
+                                    "code": "SEG-I"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LIVER_NORMAL_FINDING",
+                                    "display": "Normal finding liver tissue"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LIVER_SPECIFICATION",
+                                    "display": "Liver tissue - specification"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-172",
+                                    "code": "FIBROSIS"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/30"
+            }
+        },
+        {
+            "fullUrl": "Observation/31",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "31",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 4: End of adjuvanten oder zwischengeschalteten Therapie_10/23/2024 13:46:19"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2345"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "3",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-4_END_ADJUVANT_THERAPY"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_MET",
+                                    "display": "Adjuvant Chemotherapy (CTx) - metastases"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_REGIME",
+                                    "display": "Adjuvant CTx - regime"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "5-FU_FOLINIC-ACID"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ADJ_CTX_ANTIBODIES",
+                                    "display": "Adjuvant CTx - Additional application of antibodies"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-180",
+                                    "code": "NON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PRIMARY_TUMOR_RESECTED_MEANWHILE",
+                                    "display": "Primary tumor resected meanwhile"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-178",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_RECURRENCE",
+                                    "display": "New liver metastases recurrence"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG",
+                                    "display": "Lunge metastases existing/existed"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LUNG_RECURRENCE",
+                                    "display": "New lung metastases recurrence"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_EXTRAHEPATIC_RECURRENCE",
+                                    "display": "New extrahepatic recurrence (except for lung)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_RE-INTERVENTION_INTENTION",
+                                    "display": "Intention of all re-intervention(s)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-184",
+                                    "code": "CURATIVE"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/31"
+            }
+        },
+        {
+            "fullUrl": "Observation/32",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "32",
+                "status": "unknown",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname",
+                            "code": "SIOrgP - MetPredict - Visite 5-10: Follow Up_10/23/2024 13:47:46"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2345"
+                },
+                "effectiveDateTime": "2024-10-23",
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "1",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-5-10_FOLLOW-UP"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM",
+                                    "display": "SIOrgP-Pseudonym"
+                                }
+                            ]
+                        },
+                        "valueString": "SIORGP_TESTPAT2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE",
+                                    "display": "Date of visite"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_LAST_VISIT",
+                                    "display": "Liver metastases in last visit"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_LIVER_RECURRENCE",
+                                    "display": "New liver metastases recurrence"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_EXTRAHEPATIC_RECURRENCE_LAST_VISIT",
+                                    "display": "Extrahepatic metastases in last visit"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_MET_EXTRAHEPATIC_RECURRENCE",
+                                    "display": "New extrahepatic recurrence (except for lung)"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-173",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_ONCOLOGICAL_STATUS",
+                                    "display": "Oncological status"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-191",
+                                    "code": "CURATIVE"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/32"
+            }
+        }
+    ]
+}
