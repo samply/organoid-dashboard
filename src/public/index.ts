@@ -164,10 +164,16 @@ function sendQuery() {
   //############################ query site data ###############################
   // Create a new Spot instance
 
-  const url = new URL('https://organoid.ccp-it.dktk.dkfz.de/prod/');
-  const sites = ['dresden', 'dresden-test', 'muenchen-tum'];
-  // const url = new URL('http://localhost:8055/');
-  // const sites = ['dev-tim'];
+  let url: URL;
+  let sites: string[];
+  // @ts-ignore: The PROD variable is defined by the esbuild command in package.json
+  if (PROD) {
+    url = new URL('https://organoid.ccp-it.dktk.dkfz.de/prod/');
+    sites = ['dresden', 'dresden-test', 'muenchen-tum'];
+  } else {
+    url = new URL('http://localhost:8055/');
+    sites = ['proxy1'];
+  }
 
   //MetPredict query
   const spot1 = new Spot(url, sites);
