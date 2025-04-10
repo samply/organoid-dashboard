@@ -88,7 +88,6 @@ export class Spot {
       eventSource.addEventListener("new_result", (message) => {
         const response: BeamResult = JSON.parse(message.data);
         if (response.task !== this.currentTask) return;
-        console.log(response);
         const site: string = response.from.split(".")[1];
         const res_status: ResponseStatus = response.status;
 
