@@ -32,6 +32,8 @@ jobs:
       image-name: "samply/organoid-dashboard"
       # Where to push your images ("dockerhub", "ghcr", "both" or "none")
       push-to: dockerhub
+      # No longer needed when https://github.com/samply/github-workflows/pull/48 is merged
+      ghcr-retention-policy: keep
     # This passes the secrets from calling workflow to the called workflow
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
