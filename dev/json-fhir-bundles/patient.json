@@ -1,0 +1,34 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "Patient/42",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "42",
+                "meta": {
+                    "profile": [
+                        "http://dktk.dkfz.de/fhir/StructureDefinition/onco-core-Patient-Pseudonym"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://dktk.dkfz.de/fhir/onco/core/CodeSystem/PseudonymArtCS",
+                                    "code": "Lokal"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/42"
+            }
+        }
+    ]
+}

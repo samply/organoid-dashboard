@@ -1,0 +1,550 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "Observation/2",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "2",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/42"
+                },
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-2B_SAMPLE_COLLECTION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-10-23T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "Pseudonym_42"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M01_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "metpredict1"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M02_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "metpredict2"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_M03_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "metpredict3"
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/2"
+            }
+        },
+        {
+            "fullUrl": "Observation/1",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "1",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/42"
+                },
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_METPREDICT_VISIT-1_PATIENTDATA"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "Pseudonym_42"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LOCALISATION_PRIMARY_TUMOR"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "COLON"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_LOCALISATION_PRIMARY_TUMOR_COLON"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "COLON_ASCENDENS"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_C-T"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "T2"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_C-N"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "N2"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_T_RECTAL_CARCINOMA"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_MET"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "NA"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/1"
+            }
+        },
+        {
+            "fullUrl": "Observation/4",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "4",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/42"
+                },
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2025-04-10T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "Pseudonym_42"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_LOCALISATION"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "PANCREASTAIL"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_COLLECTION"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "OP"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/4"
+            }
+        },
+        {
+            "fullUrl": "Observation/5",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "5",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/42"
+                },
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_DATE_OF_VISITE"
+                                }
+                            ]
+                        },
+                        "valueDateTime": "2024-04-11T00:00:00+02:00"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "Pseudonym_42"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_LOCALISATION"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "PANCREASBODY"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_COLLECTION"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "OTH"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_COLLECTION_OTHER"
+                                }
+                            ]
+                        },
+                        "valueString": "Phantasieentnahme"
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/5"
+            }
+        },
+        {
+            "fullUrl": "Observation/3",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "3",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/42"
+                },
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_NEOMATCH_VISIT-1A_PATIENTDATA"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "Pseudonym_42"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_C-T"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "T1"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_C-N"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "N1"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_TNM_C-M"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "M1"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "NO"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/3"
+            }
+        }
+    ]
+}

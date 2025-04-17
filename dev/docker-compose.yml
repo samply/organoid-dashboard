@@ -17,6 +17,8 @@ services:
 
   postgres:
     image: postgres:latest
+    ports:
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: pgpass123
 
@@ -87,7 +89,8 @@ services:
       - pki:/pki:ro
 
   focus:
-    image: samply/focus:main-dktk
+    image: samply/focus:localbuild
+    # image: samply/focus:main-dktk
     depends_on:
       - proxy1
     environment:

@@ -1,4 +1,4 @@
-import { Spot, ResponseStatus } from './spot';
+import { sendSqlQuery, TableResult } from '../spot';
 import * as chartInits from './initCharts';
 
 import {
@@ -126,17 +126,6 @@ let neoMPatientsByTherapyStatus = {
 }
 */
 
-// patient and organoid focused query
-export type SiteResponse = {
-  status: ResponseStatus, data: {
-    date: string, responseDetails: [{
-      project: string,
-      field: string,
-      value: number;
-    }];
-  };
-};
-
 //init all visual elements with blank/default initial values
 function initBlank() {
   patientsByProjectBarChart = chartInits.initPatientsByProjectBarChart() ?? null;
@@ -161,49 +150,25 @@ function updateCardRow(crd: CardRowData) {
 }
 
 function sendQuery() {
-  //############################ query site data ###############################
-  // Create a new Spot instance
-
-  let url: URL;
-  let sites: string[];
-  // @ts-ignore: The PROD variable is defined by the esbuild command in package.json
-  if (PROD) {
-    url = new URL('https://organoid.ccp-it.dktk.dkfz.de/prod/');
-    sites = ['dresden', 'dresden-test', 'muenchen-tum'];
-  } else {
-    url = new URL('http://localhost:8055/');
-    sites = ['proxy1'];
-  }
-
-  //MetPredict query
-  const spot1 = new Spot(url, sites);
-  const payload1 = JSON.stringify({ payload: "SIORGP_PUBLIC_METPREDICT" });
-  const metpredict_query = btoa(payload1);
-  // Create an AbortController to cancel the request if needed
-  const controller1 = new AbortController();
-
-  spot1.send(metpredict_query, controller1).then(() => {
-    console.log('MetPredict query sent');
-  }).catch((err) => {
-    console.error('Error sending MetPredict query:', err);
-  });
-
-  //NeoMatch query
-  const spot2 = new Spot(url, sites);
-  const payload2 = JSON.stringify({ payload: "SIORGP_PUBLIC_NEOMATCH" });
-  const neomatch_query = btoa(payload2);
-  const controller2 = new AbortController();
-
-  spot2.send(neomatch_query, controller2).then(() => {
-    console.log('NeoMatch query sent');
-  }).catch((err) => {
-    console.error('Error sending NeoMatch query:', err);
-  });
-
+  sendSqlQuery("SIORGP_PUBLIC_METPREDICT", updateDashboard);
+  sendSqlQuery("SIORGP_PUBLIC_NEOMATCH", updateDashboard);
 }
 
-export function updateDashboard(res_map: Map<string, number | string>) {
-  console.log(res_map);
+export function responseBodyToMap(table: TableResult): Map<string, number | string> {
+  const fieldMap = new Map<string, number | string>();
+
+  fieldMap.set("project", table[0].project);
+
+  for (const fieldProjectVal of table) {
+    fieldMap.set(fieldProjectVal.field as string, fieldProjectVal.value);
+  }
+
+  return fieldMap;
+}
+
+export function updateDashboard(table: TableResult, site: string) {
+  console.log(`Received ${table.length} rows from ${site}`);
+  const res_map = responseBodyToMap(table);
 
   let project = String(res_map.get("project"));
   // update card row
