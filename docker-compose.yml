@@ -51,44 +51,79 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.organoid-dashboard.rule=Host(`${GUI_HOST}`)"
       - "traefik.http.routers.organoid-dashboard.tls=true"
-      - "traefik.http.routers.organoid-dashboard.middlewares=traefik-forward-auth"
+      - "traefik.http.routers.organoid-dashboard-internal.rule=Host(`${GUI_HOST}`) && PathPrefix(`/internal`)"
+      - "traefik.http.routers.organoid-dashboard-internal.tls=true"
+      - "traefik.http.routers.organoid-dashboard-internal.middlewares=traefik-forward-auth"
+      - "traefik.http.routers.organoid-dashboard-internal.service=organoid-dashboard"
+      - "traefik.http.services.organoid-dashboard.loadbalancer.server.port=80"
 
-  spot:
+  spot-public:
     image: samply/rustyspot:main
-    ports:
-      - "8055:8055"
     environment:
       HTTP_PROXY: ${http_proxy}
       HTTPS_PROXY: ${https_proxy}
       NO_PROXY: beam-proxy, prism
-      BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT}"
+      BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT_PUBLIC}"
       BEAM_PROXY_URL: http://beam-proxy:8081
-      BEAM_APP_ID: "spot.${LOCAL_BEAM_ID}.${BROKER_HOST}"
+      BEAM_APP_ID: "spot-public.${LOCAL_BEAM_ID}.${BROKER_HOST}"
       CORS_ORIGIN: "https://${GUI_HOST}"
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
+      # Base64 encoded queries: SIORGP_PUBLIC_METPREDICT, SIORGP_PUBLIC_NEOMATCH
+      QUERY_FILTER: eyJwYXlsb2FkIjoiU0lPUkdQX1BVQkxJQ19NRVRQUkVESUNUIn0=,eyJwYXlsb2FkIjoiU0lPUkdQX1BVQkxJQ19ORU9NQVRDSCJ9
     volumes:
-      - ./logs:/logs
+      - ./public_logs:/logs
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.spot.loadbalancer.server.port=8055"
+      - "traefik.http.services.spot-public.loadbalancer.server.port=8055"
       - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowmethods=GET,OPTIONS,POST"
       - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowheaders=content-type"
       - "traefik.http.middlewares.corsheaders.headers.accesscontrolalloworiginlist=https://${GUI_HOST}"
       - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowcredentials=true"
       - "traefik.http.middlewares.corsheaders.headers.accesscontrolmaxage=-1"
-      - "traefik.http.routers.spot.rule=Host(`${GUI_HOST}`) && PathPrefix(`/prod`)"
-      - "traefik.http.middlewares.stripprefix_spot_prod.stripprefix.prefixes=/prod"
-      - "traefik.http.routers.spot.tls=true"
-      - "traefik.http.routers.spot.middlewares=corsheaders,traefik-forward-auth,stripprefix_spot_prod"
+      - "traefik.http.routers.spot-public.rule=Host(`${GUI_HOST}`) && PathPrefix(`/spot-public`)"
+      - "traefik.http.middlewares.strip-prefix-spot-public.stripprefix.prefixes=/spot-public"
+      - "traefik.http.routers.spot-public.tls=true"
+      - "traefik.http.routers.spot-public.middlewares=corsheaders,traefik-forward-auth,strip-prefix-spot-public"
+
+  spot-internal:
+    image: samply/rustyspot:main
+    environment:
+      HTTP_PROXY: ${http_proxy}
+      HTTPS_PROXY: ${https_proxy}
+      NO_PROXY: beam-proxy, prism
+      BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT_INTERNAL}"
+      BEAM_PROXY_URL: http://beam-proxy:8081
+      BEAM_APP_ID: "spot-internal.${LOCAL_BEAM_ID}.${BROKER_HOST}"
+      CORS_ORIGIN: "https://${GUI_HOST}"
+      BIND_ADDR: 0.0.0.0:8055
+      RUST_LOG: "info"
+      LOG_FILE: /logs/requests.log
+      # Base64 encoded query: ORGANOID_DASHBOARD_INTERNAL
+      QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX0lOVEVSTkFMIn0=
+    volumes:
+      - ./internal_logs:/logs
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.spot-internal.loadbalancer.server.port=8055"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowmethods=GET,OPTIONS,POST"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowheaders=content-type"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolalloworiginlist=https://${GUI_HOST}"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolallowcredentials=true"
+      - "traefik.http.middlewares.corsheaders.headers.accesscontrolmaxage=-1"
+      - "traefik.http.routers.spot-internal.rule=Host(`${GUI_HOST}`) && PathPrefix(`/spot-internal`)"
+      - "traefik.http.middlewares.strip-prefix-spot-internal.stripprefix.prefixes=/spot-internal"
+      - "traefik.http.routers.spot-internal.tls=true"
+      - "traefik.http.routers.spot-internal.middlewares=corsheaders,traefik-forward-auth,strip-prefix-spot-internal"
 
   beam-proxy:
     image: docker.verbis.dkfz.de/cache/samply/beam-proxy:develop
     environment:
       BROKER_URL: https://${BROKER_HOST}
       PROXY_ID: ${LOCAL_BEAM_ID}.${BROKER_HOST}
-      APP_spot_KEY: ${LOCAL_BEAM_SECRET_SPOT}
+      APP_spot-public_KEY: ${LOCAL_BEAM_SECRET_SPOT_PUBLIC}
+      APP_spot-internal_KEY: ${LOCAL_BEAM_SECRET_SPOT_INTERNAL}
       PRIVKEY_FILE: /run/secrets/proxy.pem
       ALL_PROXY: ${http_proxy}
     secrets:

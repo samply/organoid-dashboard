@@ -82,15 +82,15 @@ services:
     environment:
       BROKER_URL: http://broker:8080
       PROXY_ID: proxy2.broker
-      APP_spot_KEY: spotkey123
+      APP_spot-public_KEY: spotkey123
+      APP_spot-internal_KEY: spotkey456
       PRIVKEY_FILE: /pki/proxy2.priv.pem
       ROOTCERT_FILE: /pki/root.crt.pem
     volumes:
       - pki:/pki:ro
 
   focus:
-    image: samply/focus:localbuild
-    # image: samply/focus:main-dktk
+    image: samply/focus:main-dktk
     depends_on:
       - proxy1
     environment:
@@ -100,8 +100,11 @@ services:
       ENDPOINT_TYPE: blaze-and-sql
       BLAZE_URL: http://blaze:8080/fhir/
       POSTGRES_CONNECTION_STRING: postgresql://postgres:pgpass123@postgres/postgres
+      QUERIES_TO_CACHE: /queries_to_cache.conf
+    volumes:
+      - ./queries_to_cache.conf:/queries_to_cache.conf:ro
 
-  spot:
+  spot-public:
     image: samply/rustyspot:main
     depends_on:
       - proxy2
@@ -110,9 +113,26 @@ services:
     environment:
       RUST_LOG: info
       BEAM_PROXY_URL: http://proxy2:8081
-      BEAM_APP_ID: spot.proxy2.broker
+      BEAM_APP_ID: spot-public.proxy2.broker
       BEAM_SECRET: spotkey123
       CORS_ORIGIN: http://127.0.0.1:8000
+      # Base64 encoded queries: SIORGP_PUBLIC_METPREDICT, SIORGP_PUBLIC_NEOMATCH
+      QUERY_FILTER: eyJwYXlsb2FkIjoiU0lPUkdQX1BVQkxJQ19NRVRQUkVESUNUIn0=,eyJwYXlsb2FkIjoiU0lPUkdQX1BVQkxJQ19ORU9NQVRDSCJ9
+
+  spot-internal:
+    image: samply/rustyspot:main
+    depends_on:
+      - proxy2
+    ports:
+      - 8056:8055
+    environment:
+      RUST_LOG: info
+      BEAM_PROXY_URL: http://proxy2:8081
+      BEAM_APP_ID: spot-internal.proxy2.broker
+      BEAM_SECRET: spotkey456
+      CORS_ORIGIN: http://127.0.0.1:8000
+      # Base64 encoded query: ORGANOID_DASHBOARD_INTERNAL
+      QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX0lOVEVSTkFMIn0=
 
 volumes:
   pki:

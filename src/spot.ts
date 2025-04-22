@@ -2,16 +2,6 @@ export type TableResult = {
   [key: string]: string | number;
 }[];
 
-export function sendSqlQuery(
-  queryName: string,
-  resultCallback: (result: TableResult, site: string) => void
-): void {
-  sendQuery(
-    btoa(JSON.stringify({ payload: queryName })),
-    resultCallback
-  )
-}
-
 type BeamResult = {
   body: string;
   from: string;
@@ -21,18 +11,27 @@ type BeamResult = {
   to: string[];
 };
 
-async function sendQuery(
-  query: string,
-  resultCallback: (result: any, site: string) => void
+export async function sendSqlQuery(
+  queryName: string,
+  resultCallback: (result: TableResult, site: string) => void
 ): Promise<void> {
+  console.log("Sending query", queryName);
   let url: string;
   let sites: string[];
   // @ts-ignore: The PROD variable is defined by the esbuild command in package.json
   if (PROD) {
-    url = 'https://organoid.ccp-it.dktk.dkfz.de/prod/';
+    if (queryName === "ORGANOID_DASHBOARD_INTERNAL") {
+      url = 'https://organoid.ccp-it.dktk.dkfz.de/spot-internal/';
+    } else {
+      url = 'https://organoid.ccp-it.dktk.dkfz.de/spot-public/';
+    }
     sites = ['dresden', 'dresden-test', 'muenchen-tum'];
   } else {
-    url = 'http://localhost:8055/';
+    if (queryName === "ORGANOID_DASHBOARD_INTERNAL") {
+      url = 'http://localhost:8056/';
+    } else {
+      url = 'http://localhost:8055/';
+    }
     sites = ['proxy1', 'proxy5'];
   }
 
@@ -48,7 +47,7 @@ async function sendQuery(
       body: JSON.stringify({
         id: currentTask,
         sites: sites,
-        query: query,
+        query: btoa(JSON.stringify({ payload: queryName })),
       })
     }
   );
