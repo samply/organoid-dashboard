@@ -84,7 +84,7 @@ services:
       - "traefik.http.routers.spot-public.rule=Host(`${GUI_HOST}`) && PathPrefix(`/spot-public`)"
       - "traefik.http.middlewares.strip-prefix-spot-public.stripprefix.prefixes=/spot-public"
       - "traefik.http.routers.spot-public.tls=true"
-      - "traefik.http.routers.spot-public.middlewares=corsheaders,traefik-forward-auth,strip-prefix-spot-public"
+      - "traefik.http.routers.spot-public.middlewares=corsheaders,strip-prefix-spot-public"
 
   spot-internal:
     image: samply/rustyspot:main
