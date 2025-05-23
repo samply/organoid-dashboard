@@ -29,6 +29,34 @@
                 "method": "PUT",
                 "url": "Patient/42"
             }
+        },
+        {
+            "fullUrl": "Patient/43",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "43",
+                "meta": {
+                    "profile": [
+                        "http://dktk.dkfz.de/fhir/StructureDefinition/onco-core-Patient-Pseudonym"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://dktk.dkfz.de/fhir/onco/core/CodeSystem/PseudonymArtCS",
+                                    "code": "Lokal"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/43"
+            }
         }
     ]
 }

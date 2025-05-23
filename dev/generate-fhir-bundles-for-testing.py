@@ -31,7 +31,7 @@ def patient(id: int) -> dict:
     }
 
 
-def decimal_or_integer(code, unit=""):
+def decimal_or_integer(code, value, unit=""):
     result = {
         "code": {
             "coding": [
@@ -43,7 +43,7 @@ def decimal_or_integer(code, unit=""):
             ]
         },
         "valueQuantity": {
-            "value": 2,
+            "value": value,
             "unit": unit,
         },
     }
@@ -142,45 +142,62 @@ def bundle(entries):
 
 
 def write_json_files(patient_file, observation_file):
-    patients = [patient(42)]
+    patients = [patient(42), patient(43)]
     observations = [
-        observation(2, 42, "PROFILE_SIOP_METPREDICT_VISIT-2B_SAMPLE_COLLECTION", [
+        observation(1, 42, "PROFILE_SIOP_METPREDICT_VISIT-2B_SAMPLE_COLLECTION", [
             longdate("SIOP_DATE_OF_VISITE", "2024-10-23T00:00:00+02:00"),
-            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "Pseudonym_42"),
-            string_or_longstring("SIOP_SAMPLE_M01_PSEUDONYM", "metpredict1"),
-            string_or_longstring("SIOP_SAMPLE_M02_PSEUDONYM", "metpredict2"),
-            string_or_longstring("SIOP_SAMPLE_M03_PSEUDONYM", "metpredict3"),
+            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "MetP-P42"),
+            string_or_longstring("SIOP_SAMPLE_M01_PSEUDONYM", "MetP-P42-t1-M1"),
+            string_or_longstring("SIOP_SAMPLE_M02_PSEUDONYM", "MetP-P42-t1-M2"),
+            string_or_longstring("SIOP_SAMPLE_M03_PSEUDONYM", "MetP-P42-t1-M3"),
         ]),
-        observation(1, 42, "PROFILE_SIOP_METPREDICT_VISIT-1_PATIENTDATA", [
-            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "Pseudonym_42"),
+        observation(2, 42, "PROFILE_SIOP_METPREDICT_VISIT-1_PATIENTDATA", [
+            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "MetP-P42"),
+            decimal_or_integer("SIOP_AGE_STUDY_ENROLLMENT", 55, "YEARS"),
+            selectmany_or_selectone("SIOP_GENDER", ["MALE"]),
             selectmany_or_selectone("SIOP_LOCALISATION_PRIMARY_TUMOR", ["COLON"]),
             selectmany_or_selectone("SIOP_LOCALISATION_PRIMARY_TUMOR_COLON", ["COLON_ASCENDENS"]),
             selectmany_or_selectone("SIOP_TNM_C-T", ["T2"]),
             selectmany_or_selectone("SIOP_TNM_C-N", ["N2"]),
-            selectmany_or_selectone("SIOP_NEOADJ_T_RECTAL_CARCINOMA", ["YES"]),
-            selectmany_or_selectone("SIOP_NEOADJ_CTX_MET", ["NA"]),
+            # selectmany_or_selectone("SIOP_NEOADJ_T_RECTAL_CARCINOMA", ["YES"]),
+            selectmany_or_selectone("SIOP_NEOADJ_RCTX_RT_LONG_COURSE", ["YES"]),
+            selectmany_or_selectone("SIOP_NEOADJ_RTX_RT_SHORT_COURSE", ["NO"]),
+            selectmany_or_selectone("SIOP_NEOADJ_TNT", ["YES"]),
+            selectmany_or_selectone("SIOP_NEOADJ_RCTX_CT_REGIMEN", ["CAPECITABIN"]),
+            selectmany_or_selectone("SIOP_NEOADJ_TNT_CT_REGIMEN", ["OTH"]),
+            string_or_longstring("SIOP_NEOADJ_TNT_CT_REGIMEN_OTHER", "Phantasie"),
+            selectmany_or_selectone("SIOP_NEOADJ_CTX_MET", ["YES"]),
+            selectmany_or_selectone("SIOP_NEOADJ_CTX_REGIMEN_METPREDICT", ["FOLFOX"]),
+            selectmany_or_selectone("SIOP_NEOADJ_CTX_ANTIBODIES", ["CETUXIMAB"]),
         ]),
 
-        observation(4, 42, "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION", [
+        observation(3, 43, "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION", [
             longdate("SIOP_DATE_OF_VISITE", "2025-04-10T00:00:00+02:00"),
-            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "Pseudonym_42"),
+            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "NeoM-P43"),
             selectmany_or_selectone("SIOP_SAMPLE_LOCALISATION", ["PANCREASTAIL"]),
-            selectmany_or_selectone("SIOP_SAMPLE_COLLECTION", ["OP"]),
+            selectmany_or_selectone("SIOP_SAMPLE_COLLECTION", ["EUS"]),
         ]),
-        observation(5, 42, "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION", [
+        observation(4, 43, "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION", [
             longdate("SIOP_DATE_OF_VISITE", "2024-04-11T00:00:00+02:00"),
-            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "Pseudonym_42"),
+            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "NeoM-P43"),
             selectmany_or_selectone("SIOP_SAMPLE_LOCALISATION", ["PANCREASBODY"]),
-            selectmany_or_selectone("SIOP_SAMPLE_COLLECTION", ["OTH"]),
+            selectmany_or_selectone("SIOP_SAMPLE_COLLECTION", ["OP"]),
             string_or_longstring("SIOP_SAMPLE_COLLECTION_OTHER", "Phantasieentnahme"),
         ]),
-        observation(3, 42, "PROFILE_SIOP_NEOMATCH_VISIT-1A_PATIENTDATA", [
-            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "Pseudonym_42"),
+        observation(5, 43, "PROFILE_SIOP_NEOMATCH_VISIT-1A_PATIENTDATA", [
+            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "NeoM-P43"),
+            decimal_or_integer("SIOP_AGE_STUDY_ENROLLMENT", 65, "YEARS"),
+            selectmany_or_selectone("SIOP_GENDER", ["FEMALE"]),
             selectmany_or_selectone("SIOP_TNM_C-T", ["T1"]),
             selectmany_or_selectone("SIOP_TNM_C-N", ["N1"]),
             selectmany_or_selectone("SIOP_TNM_C-M", ["M1"]),
-            selectmany_or_selectone("SIOP_NEOADJ_CTX", ["NO"]),
+            selectmany_or_selectone("SIOP_NEOADJ_CTX", ["YES"]),
         ]),
+        observation(6, 43, "PROFILE_SIOP_NEOMATCH_VISIT-1B_NEOADJUVANT_CTX", [
+            string_or_longstring("SIOP_PATIENT_PSEUDONYM", "NeoM-P43"),
+            selectmany_or_selectone("SIOP_NEOADJ_CTX_REGIMEN_NEOMATCH", ["FOLFIRINOX"]),
+            selectmany_or_selectone("SIOP_NEOADJ_CTX_ADDITIONAL_RT", ["NO"]),
+        ])
     ]
     with open(patient_file, "w") as f:
         json.dump(bundle(patients), f, indent=4)

@@ -76,15 +76,15 @@
       <h4 style="text-align: center;">Patients by Project</h4>
       <h4 style="text-align: center;">Organoids by Project</h4>
       <h4 style="text-align: center;">Patients Age Distribution
-        <img class="info-icon" alt="" title="distribution of patient ages at study enrollment"
+        <img class="info-icon" alt="" title="Distribution of patient ages at study enrollment"
           src="../images/info-circle-svgrepo-com.svg"></img>
       </h4>
 
       <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
       <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
-      <div style="min-width: 0;"><canvas id="patientsByProjectBarChartCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="organoidsByProjectBarChartCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="patientsByAgeBarChartCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="patientsByProjectCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="organoidsByProjectCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="patientsByAgeCanvas"></canvas></div>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-s); padding: var(--gap-s);"
@@ -92,30 +92,30 @@
       <h4 style="text-align: center;">Patients by Gender</h4>
       <h4 style="text-align: center;">Organoids by Biopsy Site</h4>
       <h4 style="text-align: center;">MetP Patients by PDOs
-        <img class="info-icon" alt="" title="the numbers of MetPredict patients having a given number of organoids"
+        <img class="info-icon" alt="" title="The number of MetPredict patients having a given number of organoids"
           src="../images/info-circle-svgrepo-com.svg"></img>
       </h4>
       <h4 style="text-align: center;">NeoM Patients: PDOs by Therapy Status
         <img class="info-icon" alt=""
-          title="numbers of NeoMatch patients having organoids that were sampled at a specified status of therapy"
+          title="The number of NeoMatch patients having organoids that were sampled at a specified status of therapy"
           src="../images/info-circle-svgrepo-com.svg"></img>
       </h4>
 
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="patientsByGenderPieChartLegend"></div>
+        id="patientsByGenderLegend"></div>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="organoidByBiopsySitePieChartLegend"></div>
+        id="organoidsByBiopsySiteLegend"></div>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="metPPatientsByPdosPieChartLegend"></div>
+        id="metPPatientsByPdosLegend"></div>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="neoMPatientsByTherapyStatusPieChartLegend"></div>
+        id="neoMPatientsByTherapyStatusLegend"></div>
 
       <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
       <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
-      <div style="min-width: 0;"><canvas id="patientsByGenderPieChartCanvas"></canvas></canvas></div>
-      <div style="min-width: 0;"><canvas id="organoidByBiopsySitePieChartCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="metPPatientsByPdosPieChartCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="neoMPatientsByTherapyStatusPieChartCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="patientsByGenderCanvas"></canvas></canvas></div>
+      <div style="min-width: 0;"><canvas id="organoidsByBiopsySiteCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="metPPatientsByPdosCanvas"></canvas></div>
+      <div style="min-width: 0;"><canvas id="neoMPatientsByTherapyStatusCanvas"></canvas></div>
     </div>
   </main>
   <footer>

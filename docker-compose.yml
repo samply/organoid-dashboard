@@ -70,8 +70,7 @@ services:
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
-      # Base64 encoded queries: SIORGP_PUBLIC_METPREDICT, SIORGP_PUBLIC_NEOMATCH
-      QUERY_FILTER: eyJwYXlsb2FkIjoiU0lPUkdQX1BVQkxJQ19NRVRQUkVESUNUIn0=,eyJwYXlsb2FkIjoiU0lPUkdQX1BVQkxJQ19ORU9NQVRDSCJ9
+      QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX1BVQkxJQyJ9 # ORGANOID_DASHBOARD_PUBLIC
     volumes:
       - ./public_logs:/logs
     labels:
@@ -100,8 +99,7 @@ services:
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
-      # Base64 encoded query: ORGANOID_DASHBOARD_INTERNAL
-      QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX0lOVEVSTkFMIn0=
+      QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX0lOVEVSTkFMIn0= # ORGANOID_DASHBOARD_INTERNAL
     volumes:
       - ./internal_logs:/logs
     labels:

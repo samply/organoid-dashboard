@@ -32,7 +32,7 @@ export async function sendSqlQuery(
     } else {
       url = 'http://localhost:8055/';
     }
-    sites = ['proxy1', 'proxy5'];
+    sites = ['proxy1'];
   }
 
   const currentTask = crypto.randomUUID();

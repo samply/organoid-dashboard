@@ -3,10 +3,10 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "Observation/2",
+            "fullUrl": "Observation/1",
             "resource": {
                 "resourceType": "Observation",
-                "id": "2",
+                "id": "1",
                 "code": {
                     "coding": [
                         {
@@ -47,7 +47,7 @@
                                 }
                             ]
                         },
-                        "valueString": "Pseudonym_42"
+                        "valueString": "MetP-P42"
                     },
                     {
                         "code": {
@@ -58,7 +58,7 @@
                                 }
                             ]
                         },
-                        "valueString": "metpredict1"
+                        "valueString": "MetP-P42-t1-M1"
                     },
                     {
                         "code": {
@@ -69,7 +69,7 @@
                                 }
                             ]
                         },
-                        "valueString": "metpredict2"
+                        "valueString": "MetP-P42-t1-M2"
                     },
                     {
                         "code": {
@@ -80,20 +80,20 @@
                                 }
                             ]
                         },
-                        "valueString": "metpredict3"
+                        "valueString": "MetP-P42-t1-M3"
                     }
                 ]
             },
             "request": {
                 "method": "PUT",
-                "url": "Observation/2"
+                "url": "Observation/1"
             }
         },
         {
-            "fullUrl": "Observation/1",
+            "fullUrl": "Observation/2",
             "resource": {
                 "resourceType": "Observation",
-                "id": "1",
+                "id": "2",
                 "code": {
                     "coding": [
                         {
@@ -123,7 +123,39 @@
                                 }
                             ]
                         },
-                        "valueString": "Pseudonym_42"
+                        "valueString": "MetP-P42"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_AGE_STUDY_ENROLLMENT"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 55,
+                            "unit": "YEARS"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_GENDER"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "MALE"
+                                }
+                            ]
+                        }
                     },
                     {
                         "code": {
@@ -202,7 +234,7 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.centraxx.de/system/laborValue",
-                                    "code": "SIOP_NEOADJ_T_RECTAL_CARCINOMA"
+                                    "code": "SIOP_NEOADJ_RCTX_RT_LONG_COURSE"
                                 }
                             ]
                         },
@@ -220,6 +252,89 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_RTX_RT_SHORT_COURSE"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "NO"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_TNT"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_RCTX_CT_REGIMEN"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "CAPECITABIN"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_TNT_CT_REGIMEN"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "OTH"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_TNT_CT_REGIMEN_OTHER"
+                                }
+                            ]
+                        },
+                        "valueString": "Phantasie"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
                                     "code": "SIOP_NEOADJ_CTX_MET"
                                 }
                             ]
@@ -228,7 +343,43 @@
                             "coding": [
                                 {
                                     "system": "urn:centraxx:CodeSystem/ValueList-179",
-                                    "code": "NA"
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_REGIMEN_METPREDICT"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "FOLFOX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_ANTIBODIES"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "CETUXIMAB"
                                 }
                             ]
                         }
@@ -237,14 +388,14 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Observation/1"
+                "url": "Observation/2"
             }
         },
         {
-            "fullUrl": "Observation/4",
+            "fullUrl": "Observation/3",
             "resource": {
                 "resourceType": "Observation",
-                "id": "4",
+                "id": "3",
                 "code": {
                     "coding": [
                         {
@@ -253,7 +404,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/42"
+                    "reference": "Patient/43"
                 },
                 "method": {
                     "coding": [
@@ -285,7 +436,7 @@
                                 }
                             ]
                         },
-                        "valueString": "Pseudonym_42"
+                        "valueString": "NeoM-P43"
                     },
                     {
                         "code": {
@@ -318,7 +469,7 @@
                             "coding": [
                                 {
                                     "system": "urn:centraxx:CodeSystem/ValueList-179",
-                                    "code": "OP"
+                                    "code": "EUS"
                                 }
                             ]
                         }
@@ -327,14 +478,14 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Observation/4"
+                "url": "Observation/3"
             }
         },
         {
-            "fullUrl": "Observation/5",
+            "fullUrl": "Observation/4",
             "resource": {
                 "resourceType": "Observation",
-                "id": "5",
+                "id": "4",
                 "code": {
                     "coding": [
                         {
@@ -343,7 +494,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/42"
+                    "reference": "Patient/43"
                 },
                 "method": {
                     "coding": [
@@ -375,7 +526,7 @@
                                 }
                             ]
                         },
-                        "valueString": "Pseudonym_42"
+                        "valueString": "NeoM-P43"
                     },
                     {
                         "code": {
@@ -408,7 +559,7 @@
                             "coding": [
                                 {
                                     "system": "urn:centraxx:CodeSystem/ValueList-179",
-                                    "code": "OTH"
+                                    "code": "OP"
                                 }
                             ]
                         }
@@ -428,14 +579,14 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Observation/5"
+                "url": "Observation/4"
             }
         },
         {
-            "fullUrl": "Observation/3",
+            "fullUrl": "Observation/5",
             "resource": {
                 "resourceType": "Observation",
-                "id": "3",
+                "id": "5",
                 "code": {
                     "coding": [
                         {
@@ -444,7 +595,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/42"
+                    "reference": "Patient/43"
                 },
                 "method": {
                     "coding": [
@@ -465,7 +616,39 @@
                                 }
                             ]
                         },
-                        "valueString": "Pseudonym_42"
+                        "valueString": "NeoM-P43"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_AGE_STUDY_ENROLLMENT"
+                                }
+                            ]
+                        },
+                        "valueQuantity": {
+                            "value": 65,
+                            "unit": "YEARS"
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_GENDER"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "FEMALE"
+                                }
+                            ]
+                        }
                     },
                     {
                         "code": {
@@ -534,6 +717,85 @@
                             "coding": [
                                 {
                                     "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "YES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/5"
+            }
+        },
+        {
+            "fullUrl": "Observation/6",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "6",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/finding/shortname"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/43"
+                },
+                "method": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.centraxx.de/system/laborMethod",
+                            "version": "2",
+                            "code": "PROFILE_SIOP_NEOMATCH_VISIT-1B_NEOADJUVANT_CTX"
+                        }
+                    ]
+                },
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_PATIENT_PSEUDONYM"
+                                }
+                            ]
+                        },
+                        "valueString": "NeoM-P43"
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_REGIMEN_NEOMATCH"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
+                                    "code": "FOLFIRINOX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_NEOADJ_CTX_ADDITIONAL_RT"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "urn:centraxx:CodeSystem/ValueList-179",
                                     "code": "NO"
                                 }
                             ]
@@ -543,7 +805,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Observation/3"
+                "url": "Observation/6"
             }
         }
     ]
