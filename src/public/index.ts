@@ -110,6 +110,16 @@ let values = {
 
 let numResponses = 0;
 
+import * as excelValues from './excel.json';
+for (const [key, value] of Object.entries(excelValues)) {
+  values[key as keyof typeof values] += value;
+}
+numResponses = 5;
+document.getElementById('numResponses')!.innerText = numResponses.toString();
+document.getElementById('numProjects')!.innerText = (Math.min(values.metpredict_patients, 1) + Math.min(values.neomatch_patients, 1)).toString();
+document.getElementById('numPatients')!.innerText = (values.metpredict_patients + values.neomatch_patients).toString();
+document.getElementById('numOrganoids')!.innerText = (values.metpredict_organoids + values.neomatch_organoids).toString();
+
 function renderCharts() {
   renderBarChart(
     'patientsByProjectCanvas',
@@ -161,7 +171,7 @@ function updateDashboard(table: TableResult, site: string) {
   
   numResponses += 1;
   document.getElementById('numResponses')!.innerText = numResponses.toString();
-  document.getElementById('numProjects')!.innerText = (Math.max(values.metpredict_patients, 1) + Math.max(values.neomatch_patients, 1)).toString();
+  document.getElementById('numProjects')!.innerText = (Math.min(values.metpredict_patients, 1) + Math.min(values.neomatch_patients, 1)).toString();
   document.getElementById('numPatients')!.innerText = (values.metpredict_patients + values.neomatch_patients).toString();
   document.getElementById('numOrganoids')!.innerText = (values.metpredict_organoids + values.neomatch_organoids).toString();
 

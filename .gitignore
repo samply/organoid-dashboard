@@ -4,3 +4,4 @@
 /organoid-dashboard.priv.pem
 /root.crt.pem
 /logs/requests.log
+/*aggregierteDaten*.csv
