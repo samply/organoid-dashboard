@@ -99,7 +99,9 @@ let values = {
   organoids_from_untreated_primary_tumor: 0,
   organoids_from_treated_primary_tumor: 0,
   organoids_from_unknown_site: 0,
-  metpredict_patients_with_lt_4_organoids: 0,
+  metpredict_patients_with_1_organoids: 0,
+  metpredict_patients_with_2_organoids: 0,
+  metpredict_patients_with_3_organoids: 0,
   metpredict_patients_with_4_organoids: 0,
   metpredict_patients_with_5_organoids: 0,
   metpredict_patients_with_gt_5_organoids: 0,
@@ -151,8 +153,14 @@ function renderCharts() {
   renderPieChart(
     'metPPatientsByPdosCanvas',
     'metPPatientsByPdosLegend',
-    ['<4 PDOs', '4 PDOs', '5 PDOs', '>5 PDOs'],
-    [values.metpredict_patients_with_lt_4_organoids, values.metpredict_patients_with_4_organoids, values.metpredict_patients_with_5_organoids, values.metpredict_patients_with_gt_5_organoids]
+    ['1 PDO', '2 PDOs', '3 PDOs', '4 PDOs', '>4 PDOs'],
+    [
+      values.metpredict_patients_with_1_organoids,
+      values.metpredict_patients_with_2_organoids,
+      values.metpredict_patients_with_3_organoids,
+      values.metpredict_patients_with_4_organoids,
+      values.metpredict_patients_with_5_organoids + values.metpredict_patients_with_gt_5_organoids
+    ]
   );
   renderPieChart(
     'neoMPatientsByTherapyStatusCanvas',

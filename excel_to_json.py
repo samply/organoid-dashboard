@@ -20,7 +20,9 @@ values = {
   "organoids_from_untreated_primary_tumor": 0,
   "organoids_from_treated_primary_tumor": 0,
   "organoids_from_unknown_site": 0,
-  "metpredict_patients_with_lt_4_organoids": 0,
+  "metpredict_patients_with_1_organoids": 0,
+  "metpredict_patients_with_2_organoids": 0,
+  "metpredict_patients_with_3_organoids": 0,
   "metpredict_patients_with_4_organoids": 0,
   "metpredict_patients_with_5_organoids": 0,
   "metpredict_patients_with_gt_5_organoids": 0,
@@ -63,13 +65,17 @@ with open("20250528_SIOrgP_aggregierteDaten_Template_combined_MT.csv", "r") as c
                 values["metpredict_patients"] += 1
                 values["metpredict_organoids"] += num_organoids
                 values["organoids_from_metastasis"] += num_organoids
-                if num_organoids < 4:
-                    values["metpredict_patients_with_lt_4_organoids"] += 1
+                if num_organoids == 1:
+                    values["metpredict_patients_with_1_organoids"] += 1
+                elif num_organoids == 2:
+                    values["metpredict_patients_with_2_organoids"] += 1
+                elif num_organoids == 3:
+                    values["metpredict_patients_with_3_organoids"] += 1
                 elif num_organoids == 4:
                     values["metpredict_patients_with_4_organoids"] += 1
                 elif num_organoids == 5:
                     values["metpredict_patients_with_5_organoids"] += 1
-                else:
+                elif num_organoids > 5:
                     values["metpredict_patients_with_gt_5_organoids"] += 1
             case "NeoMatch":
                 num_untreated = int(row["PDO-Anzahl des Patienten vom unbehandeltem Tumor"])
