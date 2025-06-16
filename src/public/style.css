@@ -205,7 +205,23 @@ footer a {
   color: var(--blue);
   padding: 0 var(--gap-xs);
   border-right: solid 1px var(--blue);
+}
 
+.project-table-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--gap-xs);
+}
+
+.project-table-container table {
+  border-collapse: collapse;
+}
+
+.project-table-container td, .project-table-container th {
+  border: 1px solid var(--gray);
+  padding: var(--gap-xxs);
+  background-color: #fbfbff;
+  font-size: var(--font-size-s);
 }
 
 .imprint, .email {

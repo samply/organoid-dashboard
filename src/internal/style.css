@@ -103,6 +103,14 @@ header h1 {
   margin: 0;
 }
 
+/* Can be reused to style any container that should look like a card: white background, border with rounded corners */
+.card {
+  background-color: var(--white);
+  border: solid 1px var(--lightest-gray);
+  border-radius: var(--border-radius-small);
+  margin: var(--gap-xs);
+}
+
 h2 {
   text-align: center;
   font-size: var(--font-size-xxl);
@@ -171,6 +179,23 @@ h2 {
     margin-left: 0px;
   }
 
+}
+
+.project-table-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--gap-xs);
+}
+
+.project-table-container table {
+  border-collapse: collapse;
+}
+
+.project-table-container td, .project-table-container th {
+  border: 1px solid var(--gray);
+  padding: var(--gap-xxs);
+  background-color: #fbfbff;
+  font-size: var(--font-size-s);
 }
 
 footer {

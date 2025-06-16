@@ -1,7 +1,7 @@
 {
   "scripts":{
-    "start": "esbuild src/public/index.html src/public/index.ts src/public/style.css src/internal/index.html src/internal/index.ts src/internal/style.css src/images/* --bundle --minify --sourcemap --target=es6 --outdir=build --loader:.html=copy --loader:.ttf=copy --loader:.svg=copy --loader:.png=copy --loader:.jpg=copy --define:PROD=false --watch --servedir=build  --inject:src/livereload.ts",
-    "build": "esbuild src/public/index.html src/public/index.ts src/public/style.css src/internal/index.html src/internal/index.ts src/internal/style.css src/images/* --bundle --minify --sourcemap --target=es6 --outdir=build --loader:.html=copy --loader:.ttf=copy --loader:.svg=copy --loader:.png=copy --loader:.jpg=copy --define:PROD=true"
+    "start": "esbuild src/index.html src/public/index.html src/public/index.ts src/public/style.css src/internal/index.html src/internal/index.ts src/internal/style.css src/images/* --bundle --minify --sourcemap --target=es6 --outdir=build --loader:.html=copy --loader:.ttf=copy --loader:.svg=copy --loader:.png=copy --loader:.jpg=copy --define:PROD=false --watch --servedir=build  --inject:src/livereload.ts",
+    "build": "esbuild src/index.html src/public/index.html src/public/index.ts src/public/style.css src/internal/index.html src/internal/index.ts src/internal/style.css src/images/* --bundle --minify --sourcemap --target=es6 --outdir=build --loader:.html=copy --loader:.ttf=copy --loader:.svg=copy --loader:.png=copy --loader:.jpg=copy --define:PROD=true"
 
   },
   "devDependencies": {
