@@ -4,6 +4,16 @@ import { makeHtmlLegendPlugin } from './htmlLegendPlugin';
 import { Chart, BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors } from 'chart.js';
 Chart.register(BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors);
 
+const pie_colors = [
+  '#36a2eb', // blue
+  '#ff6384', // pink/red
+  '#ff9f40', // orange
+  '#ffcd56', // yellow
+  '#4bc0c0', // teal
+  '#9966ff', // purple
+  '#c9cbcf'  // gray
+];
+
 function renderBarChart(canvasId: string, labels: string[], data: number[]) {
   // Destroy old chart if it exists
   const oldChart = Chart.getChart(canvasId);
@@ -43,7 +53,7 @@ function renderBarChart(canvasId: string, labels: string[], data: number[]) {
   });
 }
 
-function renderPieChart(canvasId: string, legendId: string, labels: string[], data: number[]) {
+function renderPieChart(canvasId: string, legendId: string, labels: string[], data: number[], colors?: string[]) {
   // Destroy old chart if it exists
   const oldChart = Chart.getChart(canvasId);
   if (oldChart) {
@@ -52,12 +62,18 @@ function renderPieChart(canvasId: string, legendId: string, labels: string[], da
 
   const isSkeleton = data.every(d => d === 0);
 
+  // Use provided colors or fallback to new palette
+  const backgroundColor = (colors && colors.length > 0)
+    ? labels.map((_, i) => colors[i] || pie_colors[i % pie_colors.length])
+    : labels.map((_, i) => pie_colors[i % pie_colors.length]);
+
   new Chart(canvasId, {
     type: 'pie',
     data: {
       labels: labels,
       datasets: [{
-        data: isSkeleton ? new Array(labels.length).fill(1) : data
+        data: isSkeleton ? new Array(labels.length).fill(1) : data,
+        backgroundColor: backgroundColor
       }]
     },
     options: {
@@ -142,13 +158,15 @@ function renderCharts() {
     'patientsByGenderCanvas',
     'patientsByGenderLegend',
     ['Male', 'Female', 'Diverse', 'Unknown'],
-    [values.male_patients, values.female_patients, values.diverse_patients, values.unknown_gender_patients]
+    [values.male_patients, values.female_patients, values.diverse_patients, values.unknown_gender_patients],
+    [pie_colors[0], pie_colors[1], pie_colors[2], pie_colors[6]] // Make "Unknown" gray
   );
   renderPieChart(
     'organoidsByBiopsySiteCanvas',
     'organoidsByBiopsySiteLegend',
     ['Metastasis', 'Untreated Primary Tumor', 'Treated Primary Tumor', 'Unknown'],
-    [values.organoids_from_metastasis, values.organoids_from_untreated_primary_tumor, values.organoids_from_treated_primary_tumor, values.organoids_from_unknown_site]
+    [values.organoids_from_metastasis, values.organoids_from_untreated_primary_tumor, values.organoids_from_treated_primary_tumor, values.organoids_from_unknown_site],
+    [pie_colors[0], pie_colors[1], pie_colors[2], pie_colors[6]] // Make "Unknown" gray
   );
   renderPieChart(
     'metPPatientsByPdosCanvas',
