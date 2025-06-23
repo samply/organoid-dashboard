@@ -3,5 +3,6 @@
 /.env
 /organoid-dashboard.priv.pem
 /root.crt.pem
-/logs/requests.log
+/public_logs/requests.log
+/internal_logs/requests.log
 /*aggregierteDaten*.csv
