@@ -18,8 +18,7 @@ export async function sendSqlQuery(
   console.log("Sending query", queryName);
   let url: string;
   let sites: string[];
-  // @ts-ignore: The PROD variable is defined by the esbuild command in package.json
-  if (PROD) {
+  if (import.meta.env.PROD) {
     if (queryName === "ORGANOID_DASHBOARD_INTERNAL") {
       url = 'https://organoid.ccp-it.dktk.dkfz.de/spot-internal/';
     } else {
@@ -35,7 +34,7 @@ export async function sendSqlQuery(
     sites = ['proxy1'];
   }
 
-  const currentTask = crypto.randomUUID();
+  const id = crypto.randomUUID();
   const beamTaskResponse = await fetch(
     `${url}beam?sites=${sites.toString()}`,
     {
@@ -45,8 +44,8 @@ export async function sendSqlQuery(
       },
       credentials: "include",
       body: JSON.stringify({
-        id: currentTask,
-        sites: sites,
+        id,
+        sites,
         query: btoa(JSON.stringify({ payload: queryName })),
       })
     }
@@ -60,23 +59,23 @@ export async function sendSqlQuery(
   }
 
   const eventSource = new EventSource(
-    `${url.toString()}beam/${currentTask}?wait_count=${sites.length}`,
+    `${url.toString()}beam/${id}?wait_count=${sites.length}`,
     {
       withCredentials: true,
     }
   );
 
+  eventSource.onerror = () => {
+    // Server closed the connection, which is expected when all sites have responded
+    eventSource.close();
+  };
+
   eventSource.addEventListener("new_result", (message) => {
     const response: BeamResult = JSON.parse(message.data);
-    if (response.task !== currentTask) return;
+    if (response.task !== id) return;
     const site: string = response.from.split(".")[1];
-
     if (response.status === "succeeded") {
       resultCallback(JSON.parse(atob(response.body)), site);
     }
   });
-
-  eventSource.onerror = () => {
-    eventSource.close();
-  };
 }

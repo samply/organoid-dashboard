@@ -115,7 +115,7 @@ services:
       BEAM_PROXY_URL: http://proxy2:8081
       BEAM_APP_ID: spot-public.proxy2.broker
       BEAM_SECRET: spotkey123
-      CORS_ORIGIN: http://127.0.0.1:8000
+      CORS_ORIGIN: http://localhost:5173
       QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX1BVQkxJQyJ9 # ORGANOID_DASHBOARD_PUBLIC
 
   spot-internal:
@@ -129,7 +129,7 @@ services:
       BEAM_PROXY_URL: http://proxy2:8081
       BEAM_APP_ID: spot-internal.proxy2.broker
       BEAM_SECRET: spotkey456
-      CORS_ORIGIN: http://127.0.0.1:8000
+      CORS_ORIGIN: http://localhost:5173
       QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX0lOVEVSTkFMIn0= # ORGANOID_DASHBOARD_INTERNAL
 
 volumes:

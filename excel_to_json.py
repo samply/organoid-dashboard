@@ -93,5 +93,5 @@ with open("20250528_SIOrgP_aggregierteDaten_Template_combined_MT.csv", "r") as c
             case _:
                 raise ValueError(f"Unknown project: {row['Projekt']}")
 
-with open("src/public/excel.json", "w") as jsonfile:
+with open("excel.json", "w") as jsonfile:
     json.dump(values, jsonfile, indent=2)
