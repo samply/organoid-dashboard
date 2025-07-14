@@ -1,7 +1,12 @@
 {
     "compilerOptions": {
         "strict": true,
-        "lib": ["esnext"],
-        "resolveJsonModule": true,
+        "lib": [
+            "esnext"
+        ],
+        "module": "preserve",
+        "types": [
+            "vite/client"
+        ]
     }
 }

@@ -1,4 +1,4 @@
-import { sendSqlQuery, TableResult } from '../spot';
+import { sendSqlQuery, TableResult } from './spot';
 import { makeHtmlLegendPlugin } from './htmlLegendPlugin';
 
 import { Chart, BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors } from 'chart.js';
