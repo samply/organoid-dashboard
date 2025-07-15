@@ -5,158 +5,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="../images/favicon-dktk.png">
-  <link rel="stylesheet" href="style.old.css">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="./style.css">
   <title>DKTK Organoid Platform - Dashboard</title>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="./public.ts"></script>
 </head>
 
-<body>
+<body class="bg-slate-50">
   <!-- is changed to `display: flex` by JS if user has not given consent -->
-  <div id="consentPopup"
-    style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color: rgba(53, 53, 53, 0.8); z-index: 2; display: none; align-items: center; justify-content: center;">
-    <div style="padding: var(--gap-s); max-width: 35rem;" class="card">
+  <div id="consentPopup" class="hidden fixed inset-0 bg-gray-800/80 z-20 items-center justify-center">
+    <div class="p-5 max-w-lg bg-white border border-gray-300 rounded">
       <p>Bitte nehmen Sie vor der Nutzung die Nutzungsvereinbarung und Datenschutzerklärung zur Kenntnis:</p>
-      <div class="document-links">
-        <a href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" class="document-link">
-          <img src="../images/pdf-icon.svg" alt="PDF Icon" class="pdf-icon" />
-          Nutzungsvereinbarung
-        </a>
-        <a href="https://hub.dkfz.de/s/CEAstywLAtGFPDi" class="document-link">
-          <img src="../images/pdf-icon.svg" alt="PDF Icon" class="pdf-icon" />
-          Datenschutzerklärung
-        </a>
-      </div>
-      <p>
+      <a href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" class="flex items-center text-blue-600 hover:underline mt-3">
+        <img src="../images/pdf-icon.svg" alt="PDF Icon" class="w-16 h-16 mr-2" />
+        Nutzungsvereinbarung
+      </a>
+      <a href="https://hub.dkfz.de/s/CEAstywLAtGFPDi" class="flex items-center text-blue-600 hover:underline mt-2">
+        <img src="../images/pdf-icon.svg" alt="PDF Icon" class="w-16 h-16 mr-2" />
+        Datenschutzerklärung
+      </a>
+      <p class="mt-3">
         <input type="checkbox" id="consentCheckbox" />
         <label for="consentCheckbox">Hiermit bestätige ich, dass ich die Nutzungsvereinbarung und Datenschutzerklärung
           in ihrer aktuell gültigen Version gelesen habe und mit diesen einverstanden bin.</label>
       </p>
-      <p><button id="consentButton" style="width: 100%">Weiter zum DKTK Organoid Platform - Dashboard</button></p>
+      <button id="consentButton" class="bg-blue-200 border border-blue-500 rounded p-1 mt-3 hover:bg-blue-300 w-full disabled:bg-gray-300 disabled:text-gray-500 disabled:border-gray-400">Weiter zum Dashboard</button>
     </div>
   </div>
 
-  <header>
-    <div class="header-wrapper">
-      <div class="logo">
-        <img src="../images/dktk.svg" alt="Logo des DKTK" />
-      </div>
-      <h1>DKTK Organoid Platform - Dashboard</h1>
-      <div class="logo logo-dkfz">
-        <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" />
-      </div>
+  <header class="p-2 bg-white flex items-center justify-between rounded border border-gray-300 mx-2 mt-2">
+    <img src="../images/dktk.svg" alt="Logo des DKTK" class="h-10" />
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-light text-gray-800">DKTK Organoid Platform - Dashboard</h1>
+      <a href="/internal/" class="text-blue-600 hover:underline">Zum internen Dashboard (nur für autorisierte Benutzer)</a>
     </div>
+    <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" class="h-8" />
   </header>
-  <main>
-    <!-- cards row -->
-    <div style="display: flex; justify-content: space-around; gap: var(--gap-s); padding: var(--gap-s);" class="card">
-      <div>
-        Sites
-        <img class="info-icon" alt="" title="Number of sites providing data"
-          src="../images/info-circle-svgrepo-com.svg"></img>
-        <span id="numResponses">0</span>/5
-      </div>
-      <div>
-        Projects
-        <img class="info-icon" alt="" title="See table of projects in footer"
-          src="../images/info-circle-svgrepo-com.svg"></img>
-        <span id="numProjects">0</span>
-      </div>
-      <div>
-        Patients
-        <span id="numPatients">0</span>
-      </div>
-      <div>
-        Organoids
-        <span id="numOrganoids">0</span>
-      </div>
+
+  <div class="flex justify-around gap-5 p-5 bg-white border border-gray-300 rounded m-2">
+    <div>
+      Sites
+      <span class="cursor-help" title="Number of sites providing data">🛈</span>
+      <span id="numResponses">0</span>/5
     </div>
-
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-s); padding: var(--gap-s);"
-      class="card">
-      <h4 style="text-align: center;">Patients by Project</h4>
-      <h4 style="text-align: center;">Organoids by Project</h4>
-      <h4 style="text-align: center;">Patients Age Distribution
-        <img class="info-icon" alt="" title="Distribution of patient ages at study enrollment"
-          src="../images/info-circle-svgrepo-com.svg"></img>
-      </h4>
-
-      <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
-      <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
-      <div style="min-width: 0;"><canvas id="patientsByProjectCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="organoidsByProjectCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="patientsByAgeCanvas"></canvas></div>
+    <div>
+      Projects
+      <span class="cursor-help" title="See projects table in footer">🛈</span>
+      <span id="numProjects">0</span>
     </div>
-
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-s); padding: var(--gap-s);"
-      class="card">
-      <h4 style="text-align: center;">Patients by Gender</h4>
-      <h4 style="text-align: center;">Organoids by Biopsy Site</h4>
-      <h4 style="text-align: center;">MetP Patients by PDOs
-        <img class="info-icon" alt="" title="The number of MetPredict patients having a given number of organoids"
-          src="../images/info-circle-svgrepo-com.svg"></img>
-      </h4>
-      <h4 style="text-align: center;">NeoM Patients: PDOs by Therapy Status
-        <img class="info-icon" alt=""
-          title="The number of NeoMatch patients having organoids that were sampled at a specified status of therapy"
-          src="../images/info-circle-svgrepo-com.svg"></img>
-      </h4>
-
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="patientsByGenderLegend"></div>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="organoidsByBiopsySiteLegend"></div>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="metPPatientsByPdosLegend"></div>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-xs);"
-        id="neoMPatientsByTherapyStatusLegend"></div>
-
-      <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
-      <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
-      <div style="min-width: 0;"><canvas id="patientsByGenderCanvas"></canvas></canvas></div>
-      <div style="min-width: 0;"><canvas id="organoidsByBiopsySiteCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="metPPatientsByPdosCanvas"></canvas></div>
-      <div style="min-width: 0;"><canvas id="neoMPatientsByTherapyStatusCanvas"></canvas></div>
+    <div>
+      Patients
+      <span id="numPatients">0</span>
     </div>
-  </main>
-  <div class="project-table-container card">
-    <table>
+    <div>
+      Organoids
+      <span id="numOrganoids">0</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-5 p-5 bg-white border border-gray-300 rounded m-2">
+    <h4 class="text-center font-bold">Patients by Project</h4>
+    <h4 class="text-center font-bold">Organoids by Project</h4>
+    <h4 class="text-center font-bold">Patients Age Distribution
+      <span class="cursor-help" title="Distribution of patient ages at study enrollment">🛈</span>
+    </h4>
+
+    <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
+    <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
+    <div class="min-w-0"><canvas id="patientsByProjectCanvas"></canvas></div>
+    <div class="min-w-0"><canvas id="organoidsByProjectCanvas"></canvas></div>
+    <div class="min-w-0"><canvas id="patientsByAgeCanvas"></canvas></div>
+  </div>
+
+  <div class="grid grid-cols-4 gap-5 p-5 bg-white border border-gray-300 rounded m-2">
+    <h4 class="text-center font-bold">Patients by Gender</h4>
+    <h4 class="text-center font-bold">Organoids by Biopsy Site</h4>
+    <h4 class="text-center font-bold">MetP Patients by PDOs
+      <span class="cursor-help" title="The number of MetPredict patients having a given number of organoids">🛈</span>
+    </h4>
+    <h4 class="text-center font-bold">NeoM Patients: PDOs by Therapy Status
+      <span class="cursor-help" title="The number of NeoMatch patients having organoids that were sampled at a specified status of therapy">🛈</span>
+    </h4>
+
+    <div class="flex flex-wrap justify-center gap-2" id="patientsByGenderLegend"></div>
+    <div class="flex flex-wrap justify-center gap-2" id="organoidsByBiopsySiteLegend"></div>
+    <div class="flex flex-wrap justify-center gap-2" id="metPPatientsByPdosLegend"></div>
+    <div class="flex flex-wrap justify-center gap-2" id="neoMPatientsByTherapyStatusLegend"></div>
+
+    <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
+    <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
+    <div class="min-w-0"><canvas id="patientsByGenderCanvas"></canvas></canvas></div>
+    <div class="min-w-0"><canvas id="organoidsByBiopsySiteCanvas"></canvas></div>
+    <div class="min-w-0"><canvas id="metPPatientsByPdosCanvas"></canvas></div>
+    <div class="min-w-0"><canvas id="neoMPatientsByTherapyStatusCanvas"></canvas></div>
+  </div>
+
+  <div class="flex justify-center p-2 bg-white border border-gray-300 rounded m-2">
+    <table class="border-collapse">
       <tr>
-        <th>Projects</th>
-        <th>Description</th>
-        <th>Primary contact person(s)</th>
+        <th class="border border-gray-400 p-1 bg-gray-50">Projects</th>
+        <th class="border border-gray-400 p-1 bg-gray-50">Description</th>
+        <th class="border border-gray-400 p-1 bg-gray-50">Primary contact person(s)</th>
       </tr>
       <tr>
-        <td>MetPredict cohort</td>
-        <td>Modeling inter-metastatic heterogeneity and predicting relapse pattern of colorectal cancer liver metastases</td>
-        <td>
-          <a href="https://www.uniklinikum-dresden.de/de/das-klinikum/kliniken-polikliniken-institute/vtg/forschung/Forschungslabor/ag-stange/ag-stange" target="_blank">Daniel Stange</a>,
-          <a href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/72/5934" target="_blank">Henner Farin</a>,
-          <a href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/181/5934" target="_blank">Maximilian Reichert</a>
+        <td class="border border-gray-400 p-1 bg-gray-50">MetPredict cohort</td>
+        <td class="border border-gray-400 p-1 bg-gray-50">Modeling inter-metastatic heterogeneity and predicting relapse pattern of colorectal cancer liver metastases</td>
+        <td class="border border-gray-400 p-1 bg-gray-50">
+          <a class="text-blue-600 hover:underline" href="https://www.uniklinikum-dresden.de/de/das-klinikum/kliniken-polikliniken-institute/vtg/forschung/Forschungslabor/ag-stange/ag-stange" target="_blank">Daniel Stange</a>,
+          <a class="text-blue-600 hover:underline" href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/72/5934" target="_blank">Henner Farin</a>,
+          <a class="text-blue-600 hover:underline" href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/181/5934" target="_blank">Maximilian Reichert</a>
         </td>
       </tr>
       <tr>
-        <td>NeoMatch cohort</td>
-        <td>Longitudinal platform for patient stratification and identification of chemotherapy-induced vulnerabilities in pancreatic ductal adenocarcinoma</td>
-        <td>
-          <a href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/181/5934" target="_blank">Maximilian Reichert</a>,
-          <a href="https://www.uniklinikum-dresden.de/de/das-klinikum/kliniken-polikliniken-institute/vtg/forschung/Forschungslabor/ag-stange/ag-stange" target="_blank">Daniel Stange</a>,
-          <a href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/72/5934" target="_blank">Henner Farin</a>
+        <td class="border border-gray-400 p-1 bg-gray-50">NeoMatch cohort</td>
+        <td class="border border-gray-400 p-1 bg-gray-50">Longitudinal platform for patient stratification and identification of chemotherapy-induced vulnerabilities in pancreatic ductal adenocarcinoma</td>
+        <td class="border border-gray-400 p-1 bg-gray-50">
+          <a class="text-blue-600 hover:underline" href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/181/5934" target="_blank">Maximilian Reichert</a>,
+          <a class="text-blue-600 hover:underline" href="https://www.uniklinikum-dresden.de/de/das-klinikum/kliniken-polikliniken-institute/vtg/forschung/Forschungslabor/ag-stange/ag-stange" target="_blank">Daniel Stange</a>,
+          <a class="text-blue-600 hover:underline" href="https://dktk.dkfz.de/forschung/dktk-wissenschaftler/database-researchers/details/72/5934" target="_blank">Henner Farin</a>
         </td>
       </tr>
     </table>
   </div>
-  <footer>
-    <a href="https://dktk.dkfz.de/en/research/joint-funding-projects/strategic-initiatives/details/48/7825"
-      target="_blank">DKTK Organoid Platform & Projects</a>
-    <a class="user-agreement" href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" download="nutzervereinbarung"
-      target="_blank">Nutzungsvereinbarung</a>
-    <a class="privacy-policy" href="https://hub.dkfz.de/s/CEAstywLAtGFPDi" download="datenschutzerklaerung"
-      target="_blank">Datenschutz</a>
-    <a href="https://www.dkfz.de/de/impressum.html" target="_blank">Impressum</a>
-    <a href="https://dktk.dkfz.de/en/clinical-platform/about-ccp" download="nutzervereinbarung"
-      target="_blank">Supported by CCP</a>
-    <a class="email" href="mailto:CCP@dkfz.de">Kontakt</a>
+
+  <footer class="flex justify-center p-2 bg-white border border-gray-300 rounded mx-2">
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://dktk.dkfz.de/en/research/joint-funding-projects/strategic-initiatives/details/48/7825" target="_blank">DKTK Organoid Platform & Projects</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" download="nutzervereinbarung" target="_blank" >Nutzungsvereinbarung</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://hub.dkfz.de/s/CEAstywLAtGFPDi" download="datenschutzerklaerung" target="_blank" >Datenschutz</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://www.dkfz.de/de/impressum.html" target="_blank" >Impressum</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://dktk.dkfz.de/en/clinical-platform/about-ccp" download="nutzervereinbarung" target="_blank">Supported by CCP</a>
+    <a class="text-blue-600 hover:underline px-2" href="mailto:CCP@dkfz.de">Kontakt</a>
   </footer>
 </body>
 

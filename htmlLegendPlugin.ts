@@ -15,11 +15,7 @@ export function makeHtmlLegendPlugin(legendContainerId: string) {
       const items = chart.options.plugins!.legend!.labels!.generateLabels!(chart);
       for (const item of items) {
         const legendItem = document.createElement('div');
-        legendItem.style.alignItems = 'center';
-        legendItem.style.cursor = 'pointer';
-        legendItem.style.display = 'flex';
-        legendItem.style.flexDirection = 'row';
-        legendItem.style.fontSize = 'var(--font-size-xs)';
+        legendItem.className = 'flex cursor-pointer text-sm';
 
         legendItem.onclick = () => {
           chart.toggleDataVisibility(item.index!);

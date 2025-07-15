@@ -5,49 +5,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="../images/favicon-dktk.png">
-  <link rel="stylesheet" href="style.old.css">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="../style.css">
   <title>DKTK Organoid Platform - Internes Dashboard</title>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="./internal.ts"></script>
 </head>
 
-<body>
-  <header>
-    <div class="header-wrapper">
-      <div class="logo">
-        <img src="../images/dktk.svg" alt="Logo des DKTK" />
-      </div>
-      <h1>DKTK Organoid Platform - Internes Dashboard</h1>
-      <div class="logo logo-dkfz">
-        <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" />
-      </div>
+<body class="bg-slate-50">
+  <header class="p-2 bg-white flex items-center justify-between rounded border border-gray-300 mx-2 mt-2">
+    <img src="../images/dktk.svg" alt="Logo des DKTK" class="h-10" />
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-light text-gray-800">DKTK Organoid Platform - Internes Dashboard</h1>
+      <a href="/" class="text-blue-600 hover:underline">Zum öffentlichen Dashboard</a>
     </div>
+    <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" class="h-8" />
   </header>
-  <main>
-    <div id="site-status-wrapper">
-      <!-- Dresden: Processing,
-      Frankfurt: Offline,
-      München-TUM: Processing,
-      München-LMU: Processing <br> -->
-      <button id="rerun-query-button">
-        Refresh data
-      </button>
-    </div>
 
-    <div class="table-wrapper">
-      <div id="table"></div>
-    </div>
-  </main>
+  <!-- Dresden: Processing,
+  Frankfurt: Offline,
+  München-TUM: Processing,
+  München-LMU: Processing <br> -->
 
-  <footer>
-    <a href="https://dktk.dkfz.de/en/research/joint-funding-projects/strategic-initiatives/details/48/7825"
-      target="_blank">DKTK Organoid Platform & Projects</a>
-    <a class="user-agreement" href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" download="nutzervereinbarung" target="_blank">Nutzungsvereinbarung</a>
-    <a class="privacy-policy" href="https://hub.dkfz.de/s/gn3AdSTLKoJ7gtw" download="datenschutzerklaerung" target="_blank">Datenschutz</a>
-    <a href="https://www.dkfz.de/de/impressum.html" target="_blank">Impressum</a>
-    <a href="https://dktk.dkfz.de/en/clinical-platform/about-ccp" download="nutzervereinbarung"
-      target="_blank">Supported by CCP</a>
-    <a class="email" href="mailto:CCP@dkfz.de">Kontakt</a>
+  <button id="rerun-query-button" class="bg-blue-200 border border-blue-500 rounded p-1 mx-2 mt-2 hover:bg-blue-300">
+    Refresh data
+  </button>
+
+  <div class="p-2 bg-white rounded border border-gray-300 mx-2 mt-2">
+    <div id="table"></div>
+  </div>
+
+  <footer class="flex justify-center p-2 bg-white rounded border border-gray-300 mx-2 mt-2">
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://dktk.dkfz.de/en/research/joint-funding-projects/strategic-initiatives/details/48/7825" target="_blank">DKTK Organoid Platform & Projects</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://hub.dkfz.de/s/7CToZ529ZWoNLGo" download="nutzervereinbarung" target="_blank">Nutzungsvereinbarung</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://hub.dkfz.de/s/gn3AdSTLKoJ7gtw" download="datenschutzerklaerung" target="_blank">Datenschutz</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://www.dkfz.de/de/impressum.html" target="_blank">Impressum</a>
+    <a class="text-blue-600 hover:underline px-2 border-r border-blue-600" href="https://dktk.dkfz.de/en/clinical-platform/about-ccp" download="nutzervereinbarung" target="_blank">Supported by CCP</a>
+    <a class="text-blue-600 hover:underline px-2" href="mailto:CCP@dkfz.de">Kontakt</a>
   </footer>
 </body>
 
