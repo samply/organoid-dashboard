@@ -128,7 +128,7 @@ let values = {
 
 let numResponses = 0;
 
-import * as excelValues from './excel.json';
+import * as excelValues from '../excel.json';
 for (const [key, value] of Object.entries(excelValues)) {
   values[key as keyof typeof values] += value;
 }

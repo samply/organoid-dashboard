@@ -1,7 +1,7 @@
 import {
   sendSqlQuery,
   TableResult
-} from "../spot";
+} from "../src/spot";
 import { Grid } from "gridjs";
 
 let rows: TableResult = [];
