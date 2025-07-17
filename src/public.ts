@@ -1,5 +1,6 @@
-import { sendSqlQuery, TableResult } from './spot';
+import { querySpot } from './spot';
 import { makeHtmlLegendPlugin } from './htmlLegendPlugin';
+import * as excelValues from '../excel.json';
 
 import { Chart, BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors } from 'chart.js';
 Chart.register(BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors);
@@ -73,7 +74,7 @@ function renderPieChart(canvasId: string, legendId: string, labels: string[], da
       labels: labels,
       datasets: [{
         data: isSkeleton ? new Array(labels.length).fill(1) : data,
-        backgroundColor: backgroundColor
+        backgroundColor: !isSkeleton ? backgroundColor : undefined
       }]
     },
     options: {
@@ -90,10 +91,6 @@ function renderPieChart(canvasId: string, legendId: string, labels: string[], da
     },
     plugins: [makeHtmlLegendPlugin(legendId)],
   });
-}
-
-function sendQuery() {
-  sendSqlQuery("ORGANOID_DASHBOARD_PUBLIC", updateDashboard);
 }
 
 let values = {
@@ -125,18 +122,6 @@ let values = {
   neomatch_patients_with_treated_organoids: 0,
   neomatch_patients_with_matched_organoids: 0,
 };
-
-let numResponses = 0;
-
-import * as excelValues from '../excel.json';
-for (const [key, value] of Object.entries(excelValues)) {
-  values[key as keyof typeof values] += value;
-}
-numResponses = 5;
-document.getElementById('numResponses')!.innerText = numResponses.toString();
-document.getElementById('numProjects')!.innerText = (Math.min(values.metpredict_patients, 1) + Math.min(values.neomatch_patients, 1)).toString();
-document.getElementById('numPatients')!.innerText = (values.metpredict_patients + values.neomatch_patients).toString();
-document.getElementById('numOrganoids')!.innerText = (values.metpredict_organoids + values.neomatch_organoids).toString();
 
 function renderCharts() {
   renderBarChart(
@@ -188,20 +173,42 @@ function renderCharts() {
   );
 }
 
-function updateDashboard(table: TableResult, site: string) {
-  console.log(`Received data from ${site}`);
-
-  for (const [key, value] of Object.entries(table[0])) {
-    values[key as keyof typeof values] += Number(value);
+function updateDashboard(row: Record<string, number>, numSites: number) {
+  for (const [key, value] of Object.entries(row)) {
+    values[key as keyof typeof values] += value;
   }
-  
-  numResponses += 1;
-  document.getElementById('numResponses')!.innerText = numResponses.toString();
+
+  document.getElementById('numResponses')!.innerText = (Number(document.getElementById('numResponses')!.innerText) + numSites).toString();
   document.getElementById('numProjects')!.innerText = (Math.min(values.metpredict_patients, 1) + Math.min(values.neomatch_patients, 1)).toString();
   document.getElementById('numPatients')!.innerText = (values.metpredict_patients + values.neomatch_patients).toString();
   document.getElementById('numOrganoids')!.innerText = (values.metpredict_organoids + values.neomatch_organoids).toString();
 
   renderCharts();
+}
+
+function sendQuery() {
+  updateDashboard(excelValues, 5);
+
+  querySpot(
+    import.meta.env.PROD ? 'https://organoid.ccp-it.dktk.dkfz.de/spot-public/' : 'http://localhost:8055/',
+    import.meta.env.PROD ? [/*'dresden', 'dresden-test', 'muenchen-tum'*/] : ['proxy1'],
+    btoa(JSON.stringify({ payload: "ORGANOID_DASHBOARD_PUBLIC" })),
+    new AbortController().signal,
+    (result) => {
+      const site = result.from.split(".")[1];
+      if (result.status === "claimed") {
+      } else if (result.status === "succeeded") {
+        console.log(`Received data from site ${site}`);
+        const rows = JSON.parse(atob(result.body));
+        updateDashboard(rows[0], 1);
+      } else {
+        console.error(
+          `Site ${site} failed with status ${result.status}:`,
+          result.body,
+        );
+      }
+    }
+  );
 }
 
 function showConsentPopup() {

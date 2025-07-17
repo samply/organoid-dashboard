@@ -20,14 +20,13 @@
     <img src="../images/Deutsches_Krebsforschungszentrum_Logo.svg" alt="Logo des DKTK" class="h-8" />
   </header>
 
-  <!-- Dresden: Processing,
-  Frankfurt: Offline,
-  München-TUM: Processing,
-  München-LMU: Processing <br> -->
-
-  <button id="rerun-query-button" class="bg-blue-200 border border-blue-500 rounded p-1 mx-2 mt-2 hover:bg-blue-300">
-    Refresh data
-  </button>
+  <div class="px-2 py-3 bg-white rounded border border-gray-300 mx-2 mt-2">
+    <button id="rerun-query-button" class="bg-blue-200 border border-blue-500 rounded p-1 ml-1 mr-2 hover:bg-blue-300">
+      Refresh data
+    </button>
+    <b>Sites:</b>
+    <span id="loaded-sites"></span>
+  </div>
 
   <div class="p-2 bg-white rounded border border-gray-300 mx-2 mt-2">
     <div id="table"></div>

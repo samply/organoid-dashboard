@@ -1,81 +1,72 @@
-export type TableResult = {
-  [key: string]: string | number;
-}[];
-
-type BeamResult = {
-  body: string;
-  from: string;
-  metadata: string;
-  status: string;
-  task: string;
-  to: string[];
+export type SpotResult = {
+    body: string;
+    from: string;
+    status: "claimed" | "succeeded" | "tempfailed" | "permafailed";
+    task: string;
+    to: string[];
 };
 
-export async function sendSqlQuery(
-  queryName: string,
-  resultCallback: (result: TableResult, site: string) => void
+/**
+ * Use the spot API to send a query and listen for results.
+ *
+ * @param url The base URL of the Spot API
+ * @param sites An array of sites to query
+ * @param query The query to execute
+ * @param signal An AbortSignal to cancel the request
+ * @param resultCallback A callback function to handle each result
+ */
+export async function querySpot(
+    url: string,
+    sites: string[],
+    query: string,
+    signal: AbortSignal,
+    resultCallback: (result: SpotResult) => void,
 ): Promise<void> {
-  console.log("Sending query", queryName);
-  let url: string;
-  let sites: string[];
-  if (import.meta.env.PROD) {
-    if (queryName === "ORGANOID_DASHBOARD_INTERNAL") {
-      url = 'https://organoid.ccp-it.dktk.dkfz.de/spot-internal/';
-    } else {
-      url = 'https://organoid.ccp-it.dktk.dkfz.de/spot-public/';
-    }
-    sites = ['dresden', 'dresden-test', 'muenchen-tum'];
-  } else {
-    if (queryName === "ORGANOID_DASHBOARD_INTERNAL") {
-      url = 'http://localhost:8056/';
-    } else {
-      url = 'http://localhost:8055/';
-    }
-    sites = ['proxy1'];
-  }
+    url = url.endsWith("/") ? url : url + "/";
+    const id = crypto.randomUUID();
 
-  const id = crypto.randomUUID();
-  const beamTaskResponse = await fetch(
-    `${url}beam?sites=${sites.toString()}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        id,
-        sites,
-        query: btoa(JSON.stringify({ payload: queryName })),
-      })
-    }
-  );
+    const response = await fetch(`${url}beam?sites=${sites.join(",")}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+            id,
+            sites,
+            query,
+        }),
+    });
 
-  if (!beamTaskResponse.ok) {
-    const error = await beamTaskResponse.text();
-    console.error(
-      `Received ${beamTaskResponse.status} with message ${error}`
+    if (!response.ok) {
+        if (response.redirected) {
+            // If the response is a redirect the user is likely not logged in
+            // and we should reload the page to redirect them to the login page.
+            window.location.reload();
+        }
+
+        const error = await response.text();
+        throw new Error(`Failed to send query: ${error}`);
+    }
+
+    const eventSource = new EventSource(
+        `${url}beam/${id}?wait_count=${sites.length}`,
+        {
+            withCredentials: true,
+        },
     );
-  }
 
-  const eventSource = new EventSource(
-    `${url.toString()}beam/${id}?wait_count=${sites.length}`,
-    {
-      withCredentials: true,
-    }
-  );
+    eventSource.addEventListener("error", () => {
+        // Server closed the connection, which is expected when all sites have responded
+        eventSource.close();
+    });
 
-  eventSource.onerror = () => {
-    // Server closed the connection, which is expected when all sites have responded
-    eventSource.close();
-  };
+    signal.addEventListener("abort", () => {
+        eventSource.close();
+    });
 
-  eventSource.addEventListener("new_result", (message) => {
-    const response: BeamResult = JSON.parse(message.data);
-    if (response.task !== id) return;
-    const site: string = response.from.split(".")[1];
-    if (response.status === "succeeded") {
-      resultCallback(JSON.parse(atob(response.body)), site);
-    }
-  });
+    eventSource.addEventListener("new_result", (message) => {
+        const result: SpotResult = JSON.parse(message.data);
+        resultCallback(result);
+    });
 }
