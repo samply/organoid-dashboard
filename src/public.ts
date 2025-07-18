@@ -191,7 +191,7 @@ function sendQuery() {
 
   querySpot(
     import.meta.env.PROD ? 'https://organoid.ccp-it.dktk.dkfz.de/spot-public/' : 'http://localhost:8055/',
-    import.meta.env.PROD ? [/*'dresden', 'dresden-test', 'muenchen-tum'*/] : ['proxy1'],
+    import.meta.env.PROD ? [/*'dresden', 'dresden-test', 'muenchen-tum'*/'foobar'/*spot crashes if list is empty*/] : ['proxy1'],
     btoa(JSON.stringify({ payload: "ORGANOID_DASHBOARD_PUBLIC" })),
     new AbortController().signal,
     (result) => {
