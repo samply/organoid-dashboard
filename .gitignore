@@ -6,3 +6,6 @@
 /public_logs/requests.log
 /internal_logs/requests.log
 /*aggregierteDaten*.csv
+
+/dev/tum-fhir-bundles
+/dev/tum-obds-data
