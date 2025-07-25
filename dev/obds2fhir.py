@@ -235,10 +235,21 @@ class OBDSToFHIRConverter:
         elif value_codeable is not None:
             code_elem = value_codeable.find('.//obds:Code', self.namespace)
             if code_elem is not None and code_elem.text is not None:
+                code_value = code_elem.text
+                
+                # Convert gender codes if this is a gender field
+                if code and code == "SIOP_GENDER":
+                    gender_mapping = {
+                        "M": "MALE",
+                        "W": "FEMALE", 
+                        "D": "DIVERSE"
+                    }
+                    code_value = gender_mapping.get(code_value, "NA")
+                
                 component["valueCodeableConcept"] = {
                     "coding": [
                         {
-                            "code": code_elem.text
+                            "code": code_value
                         }
                     ]
                 }
