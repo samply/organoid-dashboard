@@ -203,8 +203,13 @@ class OBDSToFHIRConverter:
             
             if value_elem is not None and value_elem.text is not None:
                 try:
-                    value = float(value_elem.text)
-                    value_quantity_dict: Dict[str, Union[float, str]] = {"value": value}
+                    # Detect if it's an integer or float based on presence of decimal point
+                    if '.' in value_elem.text:
+                        value = float(value_elem.text)
+                    else:
+                        value = int(value_elem.text)
+                    
+                    value_quantity_dict: Dict[str, Union[str, int, float]] = {"value": value}
                     if unit_elem is not None and unit_elem.text is not None and unit_elem.text.strip():
                         value_quantity_dict["unit"] = unit_elem.text
                     component["valueQuantity"] = value_quantity_dict
