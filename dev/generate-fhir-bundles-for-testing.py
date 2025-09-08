@@ -180,9 +180,10 @@ def write_json_files(patient_file, observation_file):
         observation(4, 43, "PROFILE_SIOP_NEOMATCH_VISIT-2B_SAMPLE_COLLECTION", [
             longdate("SIOP_DATE_OF_VISITE", "2024-04-11T00:00:00+02:00"),
             string_or_longstring("SIOP_PATIENT_PSEUDONYM", "NeoM-P43"),
-            selectmany_or_selectone("SIOP_SAMPLE_LOCALISATION", ["PANCREASBODY"]),
+            selectmany_or_selectone("SIOP_SAMPLE_LOCALISATION", ["OTH"]),
+            string_or_longstring("SIOP_SAMPLE_LOCALISATION_OTHER", "Phantasielokalisation"),
             selectmany_or_selectone("SIOP_SAMPLE_COLLECTION", ["OP"]),
-            string_or_longstring("SIOP_SAMPLE_COLLECTION_OTHER", "Phantasieentnahme"),
+            # string_or_longstring("SIOP_SAMPLE_COLLECTION_OTHER", "Phantasieentnahme"),
         ]),
         observation(5, 43, "PROFILE_SIOP_NEOMATCH_VISIT-1A_PATIENTDATA", [
             string_or_longstring("SIOP_PATIENT_PSEUDONYM", "NeoM-P43"),

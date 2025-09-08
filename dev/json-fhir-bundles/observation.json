@@ -541,10 +541,21 @@
                             "coding": [
                                 {
                                     "system": "urn:centraxx:CodeSystem/ValueList-179",
-                                    "code": "PANCREASBODY"
+                                    "code": "OTH"
                                 }
                             ]
                         }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.centraxx.de/system/laborValue",
+                                    "code": "SIOP_SAMPLE_LOCALISATION_OTHER"
+                                }
+                            ]
+                        },
+                        "valueString": "Phantasielokalisation"
                     },
                     {
                         "code": {
@@ -563,17 +574,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
-                                    "system": "https://fhir.centraxx.de/system/laborValue",
-                                    "code": "SIOP_SAMPLE_COLLECTION_OTHER"
-                                }
-                            ]
-                        },
-                        "valueString": "Phantasieentnahme"
                     }
                 ]
             },
