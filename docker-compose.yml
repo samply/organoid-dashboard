@@ -70,7 +70,6 @@ services:
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
-      ALLOWED_LANG: sql-named
       QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX1BVQkxJQyJ9 # ORGANOID_DASHBOARD_PUBLIC
     volumes:
       - ./public_logs:/logs
@@ -100,7 +99,6 @@ services:
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
-      ALLOWED_LANG: sql-named
       QUERY_FILTER: eyJwYXlsb2FkIjoiT1JHQU5PSURfREFTSEJPQVJEX0lOVEVSTkFMIn0= # ORGANOID_DASHBOARD_INTERNAL
     volumes:
       - ./internal_logs:/logs
