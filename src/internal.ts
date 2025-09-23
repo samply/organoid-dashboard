@@ -65,7 +65,7 @@ function sendQuery() {
   querySpot(
     import.meta.env.PROD ? 'https://organoid.ccp-it.dktk.dkfz.de/spot-internal/' : 'http://localhost:8056/',
     import.meta.env.PROD ? ['dresden', 'dresden-test', 'muenchen-tum'] : ['proxy1'],
-    btoa(JSON.stringify({ payload: "ORGANOID_DASHBOARD_INTERNAL" })),
+    btoa(JSON.stringify({ lang: "sql-named", payload: "ORGANOID_DASHBOARD_INTERNAL" })),
     abortController.signal,
     (result) => {
       const site = result.from.split(".")[1];
