@@ -63,7 +63,7 @@ function sendQuery() {
   renderTable();
 
   querySpot(
-    import.meta.env.PROD ? 'https://organoid.ccp-it.dktk.dkfz.de/spot-internal/' : 'http://localhost:8056/',
+    import.meta.env.PROD ? '/spot-internal/' : 'http://localhost:8056/',
     import.meta.env.PROD ? ['dresden', 'dresden-test', 'muenchen-tum'] : ['proxy1'],
     btoa(JSON.stringify({ payload: "ORGANOID_DASHBOARD_INTERNAL" })),
     abortController.signal,
