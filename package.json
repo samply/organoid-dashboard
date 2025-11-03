@@ -1,10 +1,10 @@
 {
   "type": "module",
   "devDependencies": {
-    "vite": "^7.1.10"
+    "vite": "^7.1.12"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.14",
+    "@tailwindcss/vite": "^4.1.16",
     "chart.js": "^4.5.1",
     "gridjs": "^6.2.0",
     "tailwindcss": "^4.1.14"
