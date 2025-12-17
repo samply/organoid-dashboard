@@ -31,7 +31,7 @@ values = {
   "neomatch_patients_with_matched_organoids": 0,
 }
 
-with open("20250528_SIOrgP_aggregierteDaten_Template_combined_MT.csv", "r") as csvfile:
+with open("20251209_SIOrgP_aggregierteDaten_Template_combined.csv", "r") as csvfile:
     next(csvfile) # Skip first line
     reader = csv.DictReader(csvfile)
     for row in reader:
