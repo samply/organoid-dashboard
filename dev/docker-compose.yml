@@ -1,18 +1,20 @@
 services:
   blaze:
     image: samply/blaze:latest
+    environment:
+      ENFORCE_REFERENTIAL_INTEGRITY: false
     healthcheck:
       test: curl -f http://localhost:8080/fhir/metadata
       start_period: 1m
   
   blaze-loader:
-    image: alpine:3.21
+    image: alpine:latest
     depends_on:
       blaze:
         condition: service_healthy
     volumes:
       - ./container-setup-scripts/blaze-loader.sh:/blaze-loader.sh:ro
-      - ./json-fhir-bundles:/json-fhir-bundles:ro
+      - ./json-fhir-bundles:/fhir-bundles:ro
     command: sh /blaze-loader.sh
 
   postgres:

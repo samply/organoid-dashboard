@@ -10,3 +10,4 @@
 /dev/tum-fhir-bundles
 /dev/tum-obds-data
 /dev/json-bundles-from-dresden
+/dev/json-bundles-from-tum-obds2fhir
