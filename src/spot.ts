@@ -29,7 +29,6 @@ export async function querySpot(
         headers: {
             "Content-Type": "application/json",
         },
-        credentials: "include",
         body: JSON.stringify({
             id,
             query,
@@ -48,10 +47,7 @@ export async function querySpot(
     }
 
     const eventSource = new EventSource(
-        `${url}beam/${id}`,
-        {
-            withCredentials: true,
-        },
+        `${url}beam/${id}`
     );
 
     eventSource.addEventListener("error", () => {
