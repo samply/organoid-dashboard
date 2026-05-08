@@ -47,6 +47,8 @@ services:
 
   organoid-dashboard:
     image: samply/organoid-dashboard:main
+    env:
+      PUBLIC_PREFER_EXCEL: "true"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.organoid-dashboard.rule=Host(`${GUI_HOST}`)"

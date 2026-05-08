@@ -17,7 +17,6 @@ export type SpotResult = {
  */
 export async function querySpot(
     url: string,
-    sites: string[],
     query: string,
     signal: AbortSignal,
     resultCallback: (result: SpotResult) => void,
@@ -33,7 +32,6 @@ export async function querySpot(
         credentials: "include",
         body: JSON.stringify({
             id,
-            sites,
             query,
         }),
     });
@@ -50,7 +48,7 @@ export async function querySpot(
     }
 
     const eventSource = new EventSource(
-        `${url}beam/${id}?wait_count=${sites.length}`,
+        `${url}beam/${id}`,
         {
             withCredentials: true,
         },

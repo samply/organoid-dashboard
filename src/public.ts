@@ -187,11 +187,13 @@ function updateDashboard(row: Record<string, number>, numSites: number) {
 }
 
 function sendQuery() {
-  updateDashboard(excelValues, 5);
+  if (window.PUBLIC_PREFER_EXCEL) {
+    updateDashboard(excelValues, 5);
+    return;
+  }
 
   querySpot(
-    import.meta.env.PROD ? '/spot-public/' : 'http://localhost:8055/',
-    import.meta.env.PROD ? [/*'dresden', 'dresden-test', 'muenchen-tum'*/'foobar'/*spot crashes if list is empty*/] : ['proxy1'],
+    window.SPOT_PUBLIC_URL || '/spot-public/',
     btoa(JSON.stringify({ payload: "ORGANOID_DASHBOARD_PUBLIC" })),
     new AbortController().signal,
     (result) => {

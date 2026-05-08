@@ -3,9 +3,8 @@ import { Grid } from "gridjs";
 
 const siteNames: Record<string, string> = {
   "dresden": "Dresden",
-  "dresden-test": "Dresden Test",
   "muenchen-tum": "München TUM",
-  "muenchen-lmu": "München LMU",
+  "frankfurt": "Frankfurt",
 };
 
 let rows: Record<string, string>[] = [];
@@ -25,6 +24,7 @@ async function renderTable() {
       "Sample Pseudonym",
       "cTNM",
       "Localisation Primary Tumor",
+      "ICD Code",
       "Sample Type",
       "Neoadj. Therapy of Primary Tumor",
       "Neoadj. Therapy of Metastases",
@@ -37,6 +37,7 @@ async function renderTable() {
       row.sample_pseudonym,
       row.clinical_tnm,
       row.localisation_primary_tumor,
+      row.icd_code,
       row.sample_type,
       row.neoadj_therapy_primary_tumor,
       row.neoadj_therapy_metastases,
@@ -63,8 +64,7 @@ function sendQuery() {
   renderTable();
 
   querySpot(
-    import.meta.env.PROD ? '/spot-internal/' : 'http://localhost:8056/',
-    import.meta.env.PROD ? ['dresden', 'dresden-test', 'muenchen-tum'] : ['proxy1'],
+    window.SPOT_INTERNAL_URL || '/spot-internal/',
     btoa(JSON.stringify({ payload: "ORGANOID_DASHBOARD_INTERNAL" })),
     abortController.signal,
     (result) => {
