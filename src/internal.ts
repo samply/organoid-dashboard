@@ -44,6 +44,10 @@ async function renderTable() {
     ]),
     sort: true,
     search: true,
+    pagination: {
+      limit: 20,
+      summary: true,
+    },
   }).render(tableElement);
 }
 
