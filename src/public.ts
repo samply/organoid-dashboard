@@ -1,6 +1,7 @@
 import { querySpot } from './spot';
 import { makeHtmlLegendPlugin } from './htmlLegendPlugin';
 import * as excelValues from '../excel.json';
+import { siteNames } from './siteNames';
 
 import { Chart, BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors } from 'chart.js';
 Chart.register(BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors);
@@ -123,6 +124,8 @@ let values = {
   neomatch_patients_with_matched_organoids: 0,
 };
 
+let loadedSites: string[] = [];
+
 function renderCharts() {
   renderBarChart(
     'patientsByProjectCanvas',
@@ -173,13 +176,17 @@ function renderCharts() {
   );
 }
 
-function updateDashboard(row: Record<string, number>, numSites: number) {
+function updateDashboard(row: Record<string, number>, site: string) {
   for (const [key, value] of Object.entries(row)) {
     values[key as keyof typeof values] += value;
   }
 
-  document.getElementById('numResponses')!.innerText = (Number(document.getElementById('numResponses')!.innerText) + numSites).toString();
-  document.getElementById('numProjects')!.innerText = (Math.min(values.metpredict_patients, 1) + Math.min(values.neomatch_patients, 1)).toString();
+  const siteName = siteNames[site] || site;
+  loadedSites.push(siteName);
+  loadedSites.sort();
+  const loadedSitesEl = document.getElementById('loaded-sites')!;
+  loadedSitesEl.innerText = loadedSites.join(", ");
+
   document.getElementById('numPatients')!.innerText = (values.metpredict_patients + values.neomatch_patients).toString();
   document.getElementById('numOrganoids')!.innerText = (values.metpredict_organoids + values.neomatch_organoids).toString();
 
@@ -188,7 +195,7 @@ function updateDashboard(row: Record<string, number>, numSites: number) {
 
 function sendQuery() {
   if (window.PUBLIC_PREFER_EXCEL) {
-    updateDashboard(excelValues, 5);
+    updateDashboard(excelValues as Record<string, number>, "excel");
     return;
   }
 
@@ -202,7 +209,7 @@ function sendQuery() {
       } else if (result.status === "succeeded") {
         console.log(`Received data from site ${site}`);
         const rows = JSON.parse(atob(result.body));
-        updateDashboard(rows[0], 1);
+        updateDashboard(rows[0], site);
       } else {
         console.error(
           `Site ${site} failed with status ${result.status}:`,

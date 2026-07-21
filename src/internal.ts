@@ -1,13 +1,9 @@
 import { querySpot } from "./spot";
 import { Grid } from "gridjs";
-
-const siteNames: Record<string, string> = {
-  "dresden": "Dresden",
-  "muenchen-tum": "München TUM",
-  "frankfurt": "Frankfurt",
-};
+import { siteNames } from "./siteNames";
 
 let rows: Record<string, string>[] = [];
+let loadedSites: string[] = [];
 
 async function renderTable() {
   const oldTableElement = document.getElementById("table")!;
@@ -16,6 +12,10 @@ async function renderTable() {
   oldTableElement.parentNode?.replaceChild(tableElement, oldTableElement);
 
   new Grid({
+    className: {
+      th: "!py-1 !px-1.5 text-sm",
+      td: "!py-1 !px-1.5 text-sm",
+    },
     columns: [
       "Site",
       "Project",
@@ -45,7 +45,7 @@ async function renderTable() {
     sort: true,
     search: true,
     pagination: {
-      limit: 20,
+      limit: 30,
       summary: true,
     },
   }).render(tableElement);
@@ -53,7 +53,9 @@ async function renderTable() {
 
 function updateDashboard(siteRows: Record<string, string>[], site: string) {
   const siteName = siteNames[site] || site;
-  document.getElementById("loaded-sites")!.innerText += (document.getElementById("loaded-sites")!.innerText ? ", " : "") + siteName;
+  loadedSites.push(siteName);
+  loadedSites.sort();
+  document.getElementById("loaded-sites")!.innerText = loadedSites.join(", ");
   rows = rows.concat(siteRows.map((row) => ({ ...row, siteName })));
   renderTable();
 }
@@ -64,6 +66,7 @@ function sendQuery() {
   abortController = new AbortController();
 
   document.getElementById("loaded-sites")!.innerText = "";
+  loadedSites = [];
   rows = [];
   renderTable();
 

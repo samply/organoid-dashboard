@@ -41,21 +41,15 @@
 
   <div class="flex justify-around gap-5 p-5 bg-white border border-gray-300 rounded m-2">
     <div>
-      Sites
-      <span class="cursor-help" title="Number of sites providing data">🛈</span>
-      <span id="numResponses">0</span>/5
+      <b>Sites:</b>
+      <span id="loaded-sites"></span>
     </div>
     <div>
-      Projects
-      <span class="cursor-help" title="See projects table in footer">🛈</span>
-      <span id="numProjects">0</span>
-    </div>
-    <div>
-      Patients
+      <b>Total Patients:</b>
       <span id="numPatients">0</span>
     </div>
     <div>
-      Organoids
+      <b>Total Organoids:</b>
       <span id="numOrganoids">0</span>
     </div>
   </div>
@@ -69,9 +63,9 @@
 
     <!-- For responsive charts, Charts.js requires a dedicated container for each canvas: https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note -->
     <!-- The container requires `min-width: 0` if it is a flexbox item or CSS grid item: https://github.com/chartjs/Chart.js/issues/4156#issuecomment-295180128 -->
-    <div class="min-w-0"><canvas id="patientsByProjectCanvas"></canvas></div>
-    <div class="min-w-0"><canvas id="organoidsByProjectCanvas"></canvas></div>
-    <div class="min-w-0"><canvas id="patientsByAgeCanvas"></canvas></div>
+    <div class="min-w-0 min-h-72"><canvas id="patientsByProjectCanvas"></canvas></div>
+    <div class="min-w-0 min-h-72"><canvas id="organoidsByProjectCanvas"></canvas></div>
+    <div class="min-w-0 min-h-72"><canvas id="patientsByAgeCanvas"></canvas></div>
   </div>
 
   <div class="grid grid-cols-4 gap-5 p-5 bg-white border border-gray-300 rounded m-2">
