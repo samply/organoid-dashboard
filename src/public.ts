@@ -1,6 +1,6 @@
 import { querySpot } from './spot';
 import { makeHtmlLegendPlugin } from './htmlLegendPlugin';
-import * as excelValues from '../excel.json';
+// import * as excelValues from '../excel.json';
 import { siteNames } from './siteNames';
 
 import { Chart, BarController, CategoryScale, LinearScale, BarElement, PieController, ArcElement, Legend, Tooltip, Colors } from 'chart.js';
@@ -194,10 +194,10 @@ function updateDashboard(row: Record<string, number>, site: string) {
 }
 
 function sendQuery() {
-  if (window.PUBLIC_PREFER_EXCEL) {
-    updateDashboard(excelValues as Record<string, number>, "excel");
-    return;
-  }
+  // if (window.PUBLIC_PREFER_EXCEL) {
+  //   updateDashboard(excelValues as Record<string, number>, "excel");
+  //   return;
+  // }
 
   querySpot(
     window.SPOT_PUBLIC_URL || '/spot-public/',
