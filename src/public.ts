@@ -99,7 +99,7 @@ let values = {
   neomatch_patients: 0,
   metpredict_organoids: 0,
   neomatch_organoids: 0,
-  patients_age_lt_30: 0,
+  patients_age_lte_30: 0,
   patients_age_31_40: 0,
   patients_age_41_50: 0,
   patients_age_51_60: 0,
@@ -140,7 +140,7 @@ function renderCharts() {
   renderBarChart(
     'patientsByAgeCanvas',
     ['<=30', '31-40', '41-50', '51-60', '>=61', 'Unknown'],
-    [values.patients_age_lt_30, values.patients_age_31_40, values.patients_age_41_50, values.patients_age_51_60, values.patients_age_gt_60, values.unknown_age_patients]
+    [values.patients_age_lte_30, values.patients_age_31_40, values.patients_age_41_50, values.patients_age_51_60, values.patients_age_gt_60, values.unknown_age_patients]
   );
   renderPieChart(
     'patientsByGenderCanvas',
