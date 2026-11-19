@@ -7,7 +7,7 @@
     "vite": "^8.0.11"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.4",
+    "@tailwindcss/vite": "^4.3.0",
     "chart.js": "^4.5.1",
     "gridjs": "^6.2.0",
     "tailwindcss": "^4.2.2"
