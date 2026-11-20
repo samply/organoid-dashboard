@@ -4,6 +4,9 @@ on:
   pull_request:
   push:
   workflow_dispatch:
+  schedule:
+    # Nightly rebuild to pick up base image updates, before the server's 03:30 UTC update
+    - cron: "0 0 * * *"
 
 jobs:
   build:
